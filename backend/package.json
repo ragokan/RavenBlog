@@ -1,0 +1,30 @@
+{
+  "name": "safeuser",
+  "version": "1.0.0",
+  "main": "backend7server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js --ext js,json --exec babel-node",
+    "dev": "nodemon server.js --ext js,json --exec babel-node"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.8",
+    "@types/mongoose": "^5.7.36",
+    "@types/node": "^14.11.8",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.8"
+  },
+  "type": "module"
+}

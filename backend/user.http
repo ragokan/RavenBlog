@@ -1,0 +1,28 @@
+@port = http://127.0.0.1:8000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWI4MThmYmE2YzczMjBmY2JiN2M4MCIsImlhdCI6MTYwNTA3NTM0NCwiZXhwIjozMTcxNDk1MTc3NDR9.WhQQnSdYAbUcgPfTxqluVmWN-5wvvqPxmMiTPv4azQs
+
+POST {{port}}/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "email" : "okan@gmail.com",
+    "password" : "123456789",
+    "fullname" : "OKAN YILDIRIM"
+}
+###
+POST {{port}}/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email" : "okan@gmail.com",
+    "password" : "123456789"
+}
+###
+
+
+POST {{port}}/logout HTTP/1.1
+auth-token : {{token}}
+###
+
+GET {{port}}/getuser HTTP/1.1
+auth-token : {{token}}
