@@ -43,6 +43,7 @@ const Register = () => {
                 className="validate"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+                required
               />
               <label htmlFor="first_name">First Name</label>
             </div>
@@ -53,6 +54,7 @@ const Register = () => {
                 className="validate"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
+                required
               />
               <label htmlFor="last_name">Last Name</label>
             </div>
@@ -67,6 +69,7 @@ const Register = () => {
                 className="validate"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
               <label htmlFor="email">Email</label>
             </div>
@@ -81,6 +84,7 @@ const Register = () => {
                 className="validate"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <label htmlFor="password">Password</label>
             </div>
@@ -95,6 +99,7 @@ const Register = () => {
                 className="validate"
                 value={passwordConfirm}
                 onChange={(e) => setPasswordConfirm(e.target.value)}
+                required
               />
               <label htmlFor="passwordConfirm">Confirm Password</label>
             </div>

@@ -27,6 +27,7 @@ const Login = () => {
                 className="validate"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
               <label htmlFor="email">Email</label>
             </div>
@@ -41,6 +42,7 @@ const Login = () => {
                 className="validate"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <label htmlFor="password">Password</label>
             </div>

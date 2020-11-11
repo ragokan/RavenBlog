@@ -1,17 +1,18 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useReducer } from "react"
 import { newAlert } from "./actions/AlertActions"
+import { AlertReducer } from "./reducers/AlertReducer"
 
 export const AlertContext = createContext()
 
 const AlertContextProvider = (props) => {
-  const [alerts, setAlerts] = useState([])
+  const [alerts, dispatch] = useReducer(AlertReducer, [])
 
-  function addAlert(message, color) {
-    newAlert(message, color, setAlerts, alerts)
+  const addAlert = (message, color) => {
+    newAlert(message, color, dispatch)
   }
 
   return (
-    <AlertContext.Provider value={{ alerts, addAlert }}>
+    <AlertContext.Provider value={{ alerts, dispatch, addAlert }}>
       {props.children}
     </AlertContext.Provider>
   )
