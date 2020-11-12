@@ -11,25 +11,7 @@ router.get("/", async (req, res) => {
       .sort("-createdAt")
       .populate("author", ["fullname", "_id"])
 
-    const newArray = posts.map((post) => {
-      post = {
-        _id: post._id,
-        title: post.title,
-        body: post.body,
-        author: post.author,
-        likes: post.likes,
-        dislikes: post.dislikes,
-        comments: post.comments,
-        createdAt: post.createdAt,
-        updatedAt: post.updatedAt,
-        likesCount: post.likes.length,
-        dislikesCount: post.dislikes.length,
-        commentsCount: post.comments.length,
-      }
-      return post
-    })
-
-    res.status(200).json(newArray)
+    res.status(200).json(posts)
   } catch (err) {
     res.status(400).json("Error : " + err.message)
   }
@@ -42,11 +24,7 @@ router.get("/:id", async (req, res) => {
       "_id",
     ])
     if (!post) return res.status(404).json("Post is not found!")
-    res.status(200).json({
-      post,
-      likes: post.likes.length,
-      dislikes: post.dislikes.length,
-    })
+    res.status(200).json(post)
   } catch (err) {
     res.status(400).json("Error : " + err.message)
   }
