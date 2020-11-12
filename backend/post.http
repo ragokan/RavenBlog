@@ -1,6 +1,6 @@
 @port = http://127.0.0.1:8000/api/posts
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxYjg3YTJmYzI1MWQ4ODgwNzJmYyIsImlhdCI6MTYwNTE4MDI5NSwiZXhwIjozMTcxNDk2MjI2OTV9.JTrusQ_HrJshl6e-_ixTRbB4w25mpzPeog5YoU5CBLg
-@postid = 5fad207ec7df521c3c20bf0a
+@postid = 5fad248ef0331519a44cac39
 
 POST {{port}} HTTP/1.1
 auth-token : {{token}}
