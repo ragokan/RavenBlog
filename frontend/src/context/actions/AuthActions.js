@@ -66,7 +66,6 @@ const loginAction = (user, setToken, addAlert, setLoading) => {
     .post(url + "/login", user)
     .then((res) => {
       setToken(res.data)
-      addAlert("Logged in succesfully, Welcome back!", "success")
       setLoading(false)
     })
     .catch((err) => {

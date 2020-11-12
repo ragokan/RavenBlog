@@ -1,11 +1,17 @@
 import React, { useContext } from "react"
 import { LoadingContext } from "../../context/LoadingContext"
+import { motion } from "framer-motion"
 
 const Spinner = () => {
   const { userLoading } = useContext(LoadingContext)
   return userLoading ? (
     <>
-      <div className="preloaderBackground"></div>
+      <motion.div
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="preloaderBackground"
+      ></motion.div>
       <div className="sk-fading-circle">
         <div className="sk-circle1 sk-circle"></div>
         <div className="sk-circle2 sk-circle"></div>
