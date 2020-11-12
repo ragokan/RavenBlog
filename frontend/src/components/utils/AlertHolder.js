@@ -1,15 +1,16 @@
 import React, { useContext } from "react"
 import { AlertContext } from "../../context/AlertContext"
 import Alert from "./Alert"
+import { motion } from "framer-motion"
 
 const AlertHolder = () => {
   const { alerts } = useContext(AlertContext)
 
   return (
     <div>
-      <div className="mynotify">
-        <div className="row">
-          <div className="col">
+      <motion.div layout className="mynotify">
+        <motion.div layout className="row">
+          <motion.div layout className="col">
             {alerts &&
               alerts.map((alert) => (
                 <Alert
@@ -18,9 +19,9 @@ const AlertHolder = () => {
                   message={alert.message}
                 />
               ))}
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }

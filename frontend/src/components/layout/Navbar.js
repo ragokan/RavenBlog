@@ -19,7 +19,7 @@ const Navbar = ({ user }) => {
       <nav className="deep-orange">
         <div className="nav-wrapper container">
           <Link to="/" className="brand-logo">
-            Auth App
+            Raven
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             {user ? <UserLinks /> : <GuestLinks />}

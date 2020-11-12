@@ -17,7 +17,7 @@ const getUserAction = (token, setToken, setUser, addAlert, setLoading) => {
     .get(url + "/getuser", config)
     .then((res) => {
       setUser(res.data)
-      addAlert("Logged in succesfully!", "success")
+      addAlert("Logged in successfully!", "success")
       axios.defaults.headers.common["auth-token"] = token
       localStorage.setItem("authtoken", token)
       setLoading(false)
@@ -47,10 +47,7 @@ const logoutAction = (setToken, setUser, addAlert, setLoading) => {
     .post(url + "/logout")
     .then(() => {
       reset().then(() => {
-        addAlert(
-          "Logged out successfully, we would like to see you in future :)",
-          "success"
-        )
+        addAlert("Logged out successfully!")
       })
     })
     .catch((err) => {
@@ -81,7 +78,7 @@ const registerAction = (user, setToken, addAlert, setLoading) => {
     .post(url + "/register", user)
     .then((res) => {
       setToken(res.data)
-      addAlert("Registered successfully!, Welcome here :)", "success")
+      addAlert("Registered successfully!", "success")
       setLoading(false)
     })
     .catch((err) => {
