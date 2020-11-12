@@ -1,0 +1,19 @@
+@port = http://127.0.0.1:8000/api/posts
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxYjg3YTJmYzI1MWQ4ODgwNzJmYyIsImlhdCI6MTYwNTE4MDI5NSwiZXhwIjozMTcxNDk2MjI2OTV9.JTrusQ_HrJshl6e-_ixTRbB4w25mpzPeog5YoU5CBLg
+@postid = 5fad207ec7df521c3c20bf0a
+
+POST {{port}} HTTP/1.1
+auth-token : {{token}}
+Content-Type: application/json
+
+{
+    "title" :"Okan's Second Post",
+    "body" : "Hello World! It is the second post"
+}
+###
+GET {{port}} HTTP/1.1
+###
+GET {{port}}/{{postid}} HTTP/1.1
+###
+DELETE {{port}}/{{postid}} HTTP/1.1
+auth-token : {{token}}
