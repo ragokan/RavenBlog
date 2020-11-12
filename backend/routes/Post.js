@@ -3,6 +3,7 @@ const router = express.Router()
 
 import Post from "../models/Post.js"
 import auth from "../middleware/auth.js"
+import postValidation from "../validation/postValidation.js"
 
 router.get("/", async (req, res) => {
   try {
@@ -33,6 +34,10 @@ router.get("/:id", async (req, res) => {
 })
 
 router.post("/", auth, async (req, res) => {
+  // Validate Post
+  const { error } = postValidation(req.body)
+  if (error) return res.status(400).send(error.details[0].message)
+
   try {
     // Get variables and check post.
     const { title, body } = req.body

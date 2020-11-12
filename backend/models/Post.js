@@ -4,12 +4,12 @@ const PostSchema = mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "You should provide a title for your post!"],
+      required: true,
     },
     body: {
       type: String,
-      required: [true, "You should provide a title for your post's body!"],
-      min: [4, "Your body is too short!"],
+      required: true,
+      min: 4,
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,
@@ -44,7 +44,7 @@ const PostSchema = mongoose.Schema(
         fullname: {},
         text: {
           type: String,
-          required: [true, "Please provide a text for your wcomment!"],
+          required: true,
         },
       },
     ],
