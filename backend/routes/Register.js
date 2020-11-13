@@ -7,7 +7,7 @@ import registerValidation from "../validation/registerValidation.js"
 router.post("/", async (req, res) => {
   // Validate The Request
   const { error } = registerValidation(req.body)
-  if (error) return res.status(400).send(error.details[0].message)
+  if (error) return res.status(400).json(error.details[0].message)
   try {
     let { email, password, fullname } = req.body
 

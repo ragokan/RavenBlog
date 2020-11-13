@@ -8,7 +8,7 @@ import loginValidation from "../validation/loginValidation.js"
 router.post("/login", async (req, res) => {
   // Validate The Request
   const { error } = loginValidation(req.body)
-  if (error) return res.status(400).send(error.details[0].message)
+  if (error) return res.status(400).json(error.details[0].message)
 
   try {
     let { email, password } = req.body

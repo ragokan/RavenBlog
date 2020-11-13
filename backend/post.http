@@ -1,24 +1,14 @@
-@port = http://127.0.0.1:8000/api/posts
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxYjg3YTJmYzI1MWQ4ODgwNzJmYyIsImlhdCI6MTYwNTE4MDI5NSwiZXhwIjozMTcxNDk2MjI2OTV9.JTrusQ_HrJshl6e-_ixTRbB4w25mpzPeog5YoU5CBLg
-@postid = 5faeb8284357d11b1c289f2b
+@port = https://ragokan-mern.herokuapp.com/api/posts
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxMTlmYzk2N2I5MDAxNzliY2QwYyIsImlhdCI6MTYwNTI2NDAwNywiZXhwIjozMTcxNDk3MDY0MDd9.8jodb5PheFxwNyzPZixCF1In6WF51TMaxSDl4vllvpM
+@postid = 5fae68df67c7500017f432ad
 
 POST {{port}} HTTP/1.1
 auth-token : {{token}}
 Content-Type: application/json
 
 {
-    "title" :"Okan's Second Post",
-    "body" : "Hello World! It is the second post"
-}
-###
-
-PATCH {{port}}/{{postid}} HTTP/1.1
-auth-token : {{token}}
-Content-Type: application/json
-
-{
-    "title" :"Updated Post to futureee!",
-    "body" : "Hello World! It is the second post"
+    "title" :"Rago Posted It again!!!!",
+    "body" : "Hello World! It me again!!!! :)))"
 }
 ###
 GET {{port}} HTTP/1.1

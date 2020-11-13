@@ -1,8 +1,8 @@
-@port = http://127.0.0.1:8000/api/posts
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxYjg3YTJmYzI1MWQ4ODgwNzJmYyIsImlhdCI6MTYwNTE4MDI5NSwiZXhwIjozMTcxNDk2MjI2OTV9.JTrusQ_HrJshl6e-_ixTRbB4w25mpzPeog5YoU5CBLg
-@postid = 5faeb8284357d11b1c289f2b
+@port = https://ragokan-mern.herokuapp.com/api/posts
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxMTlmYzk2N2I5MDAxNzliY2QwYyIsImlhdCI6MTYwNTI3NzM0NCwiZXhwIjozMTcxNDk3MTk3NDR9.FF7aHzyd9NwH-2NxszxeNh5accZ1Uk1JyZ7tdHHBOak
+@postid = 5fae834d87fa7e00175228ff
 
-POST {{port}}/{{postid}}/like HTTP/1.1
+POST {{port}}/{{postid}}/dislike HTTP/1.1
 auth-token : {{token}}
 ###
 
@@ -11,6 +11,6 @@ auth-token : {{token}}
 Content-Type: application/json
 
 {
-    "text" : "Hey man"
+    "text" : "Second comment of man"
 }
 ###

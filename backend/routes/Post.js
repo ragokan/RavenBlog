@@ -36,7 +36,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", auth, async (req, res) => {
   // Validate Post
   const { error } = postValidation(req.body)
-  if (error) return res.status(400).send(error.details[0].message)
+  if (error) return res.status(400).json(error.details[0].message)
 
   try {
     // Get variables and check post.
@@ -61,7 +61,7 @@ router.post("/", auth, async (req, res) => {
 router.patch("/:id", auth, async (req, res) => {
   // Validate Post
   const { error } = postValidation(req.body)
-  if (error) return res.status(400).send(error.details[0].message)
+  if (error) return res.status(400).json(error.details[0].message)
 
   // Check if the request is post owner
   const postCheck = await Post.findOne({ _id: req.params.id })
