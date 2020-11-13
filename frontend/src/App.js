@@ -1,4 +1,5 @@
 import React from "react"
+import EmptyFooter from "./components/layout/EmptyFooter"
 import Routes from "./components/routing/Routes"
 import ContextProvider from "./ContextProvider"
 
@@ -7,6 +8,7 @@ const App = () => {
     <>
       <ContextProvider>
         <Routes />
+        <EmptyFooter />
       </ContextProvider>
     </>
   )

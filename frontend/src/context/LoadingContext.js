@@ -4,9 +4,12 @@ export const LoadingContext = createContext()
 
 const LoadingContextProvider = (props) => {
   const [userLoading, setUserLoading] = useState(false)
+  const [postsLoading, setPostsLoading] = useState(false)
 
   return (
-    <LoadingContext.Provider value={{ userLoading, setUserLoading }}>
+    <LoadingContext.Provider
+      value={{ userLoading, setUserLoading, postsLoading, setPostsLoading }}
+    >
       {props.children}
     </LoadingContext.Provider>
   )
