@@ -7,9 +7,9 @@ const UserLinks = () => {
 
   return (
     <>
-      {/* <li>
+      <li>
         <Link to="/dashboard">Dashboard</Link>
-      </li> */}
+      </li>
       <li>
         <Link to="#" onClick={() => logoutUser()}>
           Logout

@@ -14,6 +14,7 @@ import Profile from "../user/Profile"
 import AlertHolder from "../utils/AlertHolder"
 import Spinner from "../utils/Spinner"
 import { AuthContext } from "../../context/AuthContext"
+import HomePage from "../layout/HomePage"
 
 const Routes = () => {
   const { user } = useContext(AuthContext)
@@ -25,7 +26,8 @@ const Routes = () => {
         <AlertHolder />
         <div className="container">
           <Switch>
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/login" component={Login}>
               {user && <Redirect to="/" />}
             </Route>
