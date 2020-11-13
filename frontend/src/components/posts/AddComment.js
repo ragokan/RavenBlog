@@ -3,7 +3,7 @@ import React from "react"
 const AddComment = () => {
   return (
     <>
-      <h5 className="white-text">Add your comment!</h5>
+      <h5 className="white-text center">Add your comment!</h5>
       <div className="row">
         <form className="col-md">
           <div className="row">

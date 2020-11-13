@@ -19,7 +19,7 @@ const Comments = ({ comments }) => {
               </h6>
             ))
           ) : (
-            <div className="white-text">
+            <div className="white-text center">
               There are no comment yet, why don't you add one ?
             </div>
           )}

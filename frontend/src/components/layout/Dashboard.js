@@ -9,7 +9,7 @@ const Dashboard = () => {
       {user ? (
         <div className="card deep-orange hoverable center white-text">
           <br />
-          <h3>Your Profile</h3>
+          <h3>Your Account</h3>
           <div className="card-content">
             <span className="card-title">{user.fullname}</span>
             <p>{user.email}</p>
