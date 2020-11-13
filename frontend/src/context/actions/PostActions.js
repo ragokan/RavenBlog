@@ -63,3 +63,24 @@ export const addLikeAction = (id, posts, setPosts, addAlert) => {
       )
     })
 }
+
+export const adddisLikeAction = (id, posts, setPosts, addAlert) => {
+  api
+    .post(`/posts/${id}/dislike`)
+    .then((res) => {
+      const newPost = res.data
+      let allPosts = Array.from(posts)
+      let index = allPosts.findIndex((item) => item._id === id)
+      allPosts[index] = newPost
+      setPosts(allPosts)
+      addAlert("You sadly disliked the post!", "info")
+    })
+    .catch((err) => {
+      addAlert(
+        err.response.data
+          ? err.response.data
+          : "Error happened, please try again!",
+        "danger"
+      )
+    })
+}
