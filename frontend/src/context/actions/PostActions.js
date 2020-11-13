@@ -52,7 +52,7 @@ export const addLikeAction = (id, posts, setPosts, addAlert) => {
       let index = allPosts.findIndex((item) => item._id === id)
       allPosts[index] = newPost
       setPosts(allPosts)
-      addAlert("You successfully liked the post!", "success")
+      addAlert("You successfully liked the post!", "success", 2000)
     })
     .catch((err) => {
       addAlert(
@@ -73,7 +73,7 @@ export const adddisLikeAction = (id, posts, setPosts, addAlert) => {
       let index = allPosts.findIndex((item) => item._id === id)
       allPosts[index] = newPost
       setPosts(allPosts)
-      addAlert("You sadly disliked the post!", "info")
+      addAlert("You sadly disliked the post!", "info", 2000)
     })
     .catch((err) => {
       addAlert(
