@@ -3,8 +3,8 @@ import { LoadingContext } from "../../context/LoadingContext"
 import { motion } from "framer-motion"
 
 const Spinner = () => {
-  const { userLoading } = useContext(LoadingContext)
-  return userLoading ? (
+  const { mainLoading } = useContext(LoadingContext)
+  return mainLoading ? (
     <>
       <motion.div
         layout
