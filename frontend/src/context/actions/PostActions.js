@@ -20,20 +20,20 @@ export const addPostAction = (
   posts,
   setPosts,
   addAlert,
-  setPostLoading,
-  success
+  success,
+  setMainLoading
 ) => {
-  setPostLoading(true)
+  setMainLoading(true)
   api
     .post("/posts", post)
     .then((resp) => {
       setPosts([resp.data, ...posts])
-      setPostLoading(false)
+      setMainLoading(false)
       addAlert("Post added successfully!", "success")
       success && success()
     })
     .catch((err) => {
-      setPostLoading(false)
+      setMainLoading(false)
       addAlert(
         err.response.data
           ? err.response.data

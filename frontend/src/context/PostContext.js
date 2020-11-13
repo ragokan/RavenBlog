@@ -7,7 +7,7 @@ export const PostContext = createContext()
 
 const PostContextProvider = (props) => {
   const { addAlert } = useContext(AlertContext)
-  const { setPostsLoading } = useContext(LoadingContext)
+  const { setPostsLoading, setMainLoading } = useContext(LoadingContext)
   const [posts, setPosts] = useState([])
 
   function getPosts() {
@@ -15,7 +15,7 @@ const PostContextProvider = (props) => {
   }
 
   function addPost(post, success) {
-    addPostAction(post, posts, setPosts, addAlert, setPostsLoading, success)
+    addPostAction(post, posts, setPosts, addAlert, success, setMainLoading)
   }
 
   return (
