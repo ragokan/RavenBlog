@@ -1,9 +1,10 @@
 import React from "react"
+import PostHolder from "../posts/PostHolder"
 
 const HomePage = () => {
   return (
     <div>
-      <h4>Home Page</h4>
+      <PostHolder />
     </div>
   )
 }

@@ -11,9 +11,6 @@ export const getPostsAction = (setPosts, setPostLoading, addAlert) => {
     .catch((err) => {
       setPosts([])
       setPostLoading(false)
-      addAlert(
-        `Some network problem happened, please try again! Error : ${err.response.data}`,
-        "danger"
-      )
+      addAlert(`Some network problem happened, please try again! `, "danger")
     })
 }

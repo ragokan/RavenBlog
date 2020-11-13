@@ -3,9 +3,12 @@ import { PostContext } from "../../context/PostContext"
 
 const EmptyFooter = () => {
   const { getPosts } = useContext(PostContext)
-  useEffect(() => {
-    getPosts()
-  }, [getPosts])
+  useEffect(
+    () => {
+      getPosts()
+    },
+    /*eslint-disable*/ []
+  )
   return <></>
 }
 

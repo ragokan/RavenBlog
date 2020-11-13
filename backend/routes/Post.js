@@ -10,6 +10,9 @@ router.get("/", async (req, res) => {
     const posts = await Post.find()
       .sort("-createdAt")
       .populate("author", ["fullname", "_id"])
+      .populate("likes", ["_id", "user"])
+      .populate("dislikes", ["_id", "user"])
+      .populate("comments", ["_id", "user", "fullname", "text"])
 
     res.status(200).json(posts)
   } catch (err) {

@@ -178,3 +178,23 @@
     opacity: 1;
   }
 }
+
+.mr-1 {
+  margin-right: 10px;
+}
+
+.halfway-fab:first-child {
+  position: absolute;
+  top: 5px;
+  right: 5px !important;
+}
+
+.halfway-fab:nth-child(2) {
+  position: absolute !important;
+  top: 50px;
+  right: 5px !important;
+}
+
+.card-action {
+  margin-top: -5px;
+}
