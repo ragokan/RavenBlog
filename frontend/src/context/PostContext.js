@@ -1,7 +1,11 @@
 import React, { createContext, useContext, useState } from "react"
 import { LoadingContext } from "./LoadingContext"
 import { AlertContext } from "./AlertContext"
-import { getPostsAction, addPostAction } from "./actions/PostActions"
+import {
+  getPostsAction,
+  addPostAction,
+  addLikeAction,
+} from "./actions/PostActions"
 
 export const PostContext = createContext()
 
@@ -18,8 +22,14 @@ const PostContextProvider = (props) => {
     addPostAction(post, posts, setPosts, addAlert, success, setMainLoading)
   }
 
+  function likePost(id) {
+    addLikeAction(id, posts, setPosts, addAlert)
+  }
+
   return (
-    <PostContext.Provider value={{ posts, setPosts, getPosts, addPost }}>
+    <PostContext.Provider
+      value={{ posts, setPosts, getPosts, addPost, likePost }}
+    >
       {props.children}
     </PostContext.Provider>
   )
