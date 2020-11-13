@@ -50,7 +50,8 @@ export const addLikeAction = (id, posts, setPosts, addAlert) => {
       const newPost = res.data
       let allPosts = Array.from(posts)
       let index = allPosts.findIndex((item) => item._id === id)
-      allPosts[index] = newPost
+      allPosts[index].likes = newPost.likes
+      allPosts[index].dislikes = newPost.dislikes
       setPosts(allPosts)
       addAlert("You successfully liked the post!", "success", 2000)
     })
@@ -71,7 +72,9 @@ export const adddisLikeAction = (id, posts, setPosts, addAlert) => {
       const newPost = res.data
       let allPosts = Array.from(posts)
       let index = allPosts.findIndex((item) => item._id === id)
-      allPosts[index] = newPost
+
+      allPosts[index].likes = newPost.likes
+      allPosts[index].dislikes = newPost.dislikes
       setPosts(allPosts)
       addAlert("You sadly disliked the post!", "info", 2000)
     })
