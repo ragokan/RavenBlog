@@ -34,6 +34,11 @@ export const addPostAction = (
     })
     .catch((err) => {
       setPostLoading(false)
-      addAlert(err.response.data, "danger")
+      addAlert(
+        err.response.data
+          ? err.response.data
+          : "Error happened, please try again!",
+        "danger"
+      )
     })
 }
