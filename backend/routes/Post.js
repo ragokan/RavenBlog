@@ -52,10 +52,38 @@ router.post("/", auth, async (req, res) => {
       "author",
       ["fullname", "_id"]
     )
-    console.log(postToSend)
     res.status(200).json(postToSend)
   } catch (err) {
     res.status(400).json("Error : " + err.message)
+  }
+})
+
+router.patch("/:id", auth, async (req, res) => {
+  // Validate Post
+  const { error } = postValidation(req.body)
+  if (error) return res.status(400).send(error.details[0].message)
+
+  // Check if the request is post owner
+  const postCheck = await Post.findOne({ _id: req.params.id })
+  if (!postCheck) return res.status(404).json("No post found with that id!")
+  if (req.user.id != postCheck.author)
+    return res.status(401).json("You can't change others' posts!")
+
+  // Update the post
+  try {
+    const { title, body } = req.body
+
+    const updatedPost = await Post.findOneAndUpdate(
+      { _id: req.params.id },
+      { title, body },
+      { new: true }
+    ).populate("author", ["fullname", "_id"])
+
+    await updatedPost.save()
+
+    res.status(200).json(updatedPost)
+  } catch (error) {
+    res.status(400).json("Server error, Please try again!")
   }
 })
 
