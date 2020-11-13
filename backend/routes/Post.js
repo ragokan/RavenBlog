@@ -48,7 +48,12 @@ router.post("/", auth, async (req, res) => {
     }
 
     const newPostToAdd = await Post.create(newPost)
-    res.status(200).json(newPostToAdd)
+    const postToSend = await Post.findById(newPostToAdd._id).populate(
+      "author",
+      ["fullname", "_id"]
+    )
+    console.log(postToSend)
+    res.status(200).json(postToSend)
   } catch (err) {
     res.status(400).json("Error : " + err.message)
   }

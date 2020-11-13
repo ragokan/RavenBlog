@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react"
 import { LoadingContext } from "./LoadingContext"
 import { AlertContext } from "./AlertContext"
-import { getPostsAction } from "./actions/PostActions"
+import { getPostsAction, addPostAction } from "./actions/PostActions"
 
 export const PostContext = createContext()
 
@@ -14,8 +14,12 @@ const PostContextProvider = (props) => {
     getPostsAction(setPosts, setPostsLoading, addAlert)
   }
 
+  function addPost(post, success) {
+    addPostAction(post, posts, setPosts, addAlert, setPostsLoading, success)
+  }
+
   return (
-    <PostContext.Provider value={{ posts, setPosts, getPosts }}>
+    <PostContext.Provider value={{ posts, setPosts, getPosts, addPost }}>
       {props.children}
     </PostContext.Provider>
   )
