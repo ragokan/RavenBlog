@@ -11,7 +11,12 @@ export const getPostsAction = (setPosts, setPostLoading, addAlert) => {
     .catch((err) => {
       setPosts([])
       setPostLoading(false)
-      addAlert(`Some network problem happened, please try again! `, "danger")
+      addAlert(
+        err.response.data
+          ? err.response.data
+          : "Error happened, please try again!",
+        "danger"
+      )
     })
 }
 
@@ -53,14 +58,15 @@ export const addLikeAction = (id, posts, setPosts, addAlert) => {
       allPosts[index].likes = newPost.likes
       allPosts[index].dislikes = newPost.dislikes
       setPosts(allPosts)
-      addAlert("You successfully liked the post!", "success", 2000)
+      addAlert("You successfully liked the post!", "success", 1500)
     })
     .catch((err) => {
       addAlert(
         err.response.data
           ? err.response.data
           : "Error happened, please try again!",
-        "danger"
+        "danger",
+        2500
       )
     })
 }
@@ -76,14 +82,15 @@ export const adddisLikeAction = (id, posts, setPosts, addAlert) => {
       allPosts[index].likes = newPost.likes
       allPosts[index].dislikes = newPost.dislikes
       setPosts(allPosts)
-      addAlert("You sadly disliked the post!", "info", 2000)
+      addAlert("You sadly disliked the post!", "info", 1500)
     })
     .catch((err) => {
       addAlert(
         err.response.data
           ? err.response.data
           : "Error happened, please try again!",
-        "danger"
+        "danger",
+        2500
       )
     })
 }
