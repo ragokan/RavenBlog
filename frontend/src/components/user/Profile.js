@@ -14,6 +14,7 @@ const Profile = ({
   const { posts } = useContext(PostContext)
 
   let user = allUsers.find((aUser) => aUser._id === id)
+  console.log(user)
 
   if (!user) {
     return (
@@ -67,8 +68,12 @@ const Profile = ({
           >
             <div className="col s2 profileimg">
               <img
-                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                alt="ProfileImage"
+                src={
+                  user.picture
+                    ? user.picture
+                    : "https://icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png"
+                }
+                alt="Profile img is not found"
                 className="circle responsive-img"
               />
             </div>
@@ -76,7 +81,16 @@ const Profile = ({
               <p>{user.about}</p>
             ) : (
               <p>
-                User doesn't have any information about himself/herself yet.
+                {user && currentUser && user._id === currentUser._id ? (
+                  <div>
+                    You doesn't have any information about yourself yet. Click
+                    <Link to="/dashboard"> here</Link> to add your information.
+                  </div>
+                ) : (
+                  <div>
+                    User doesn't have any information about himself/herself yet.
+                  </div>
+                )}
               </p>
             )}
             <div className="godown"></div>
