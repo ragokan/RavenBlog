@@ -2,6 +2,7 @@ import React from "react"
 import { Collapsible, CollapsibleItem, Icon } from "react-materialize"
 import { Link } from "react-router-dom"
 import AddComment from "./AddComment"
+import { motion } from "framer-motion"
 
 const Comments = ({ comments, id }) => {
   return (
@@ -15,12 +16,12 @@ const Comments = ({ comments, id }) => {
         >
           {comments.length > 0 ? (
             comments.map((comment) => (
-              <h6 key={comment._id} className="">
+              <motion.h6 key={comment._id} className="">
                 <Link className="mr-n1 tealLink" to="/">
                   {comment.fullname}
                 </Link>
                 : {comment.text}
-              </h6>
+              </motion.h6>
             ))
           ) : (
             <div className=" center">

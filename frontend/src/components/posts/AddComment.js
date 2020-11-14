@@ -8,6 +8,7 @@ const AddComment = ({ id }) => {
   const commentForm = (e) => {
     e.preventDefault()
     addComment(id, comment)
+    setComment("")
   }
 
   return (
