@@ -1,5 +1,6 @@
 import express from "express"
 import User from "../models/User.js"
+import Post from "../models/Post.js"
 import auth from "../middleware/auth.js"
 const router = express.Router()
 
@@ -9,6 +10,31 @@ router.get("/", auth, async (req, res) => {
     "-logintoken",
   ])
   res.status(200).json(user)
+})
+
+router.get("/all", async (req, res) => {
+  try {
+    let users = await User.find().select(["-password", "-logintoken"])
+
+    let posts = await Post.find()
+      .sort("-createdAt")
+      .populate("likes", ["_id", "user"])
+      .populate("dislikes", ["_id", "user"])
+      .populate("comments", ["_id", "user", "fullname", "text"])
+
+    let postUsers = users.map((user) => {
+      return {
+        ...user._doc,
+        posts: [
+          posts.filter((post) => String(post.author) === String(user._id)),
+        ],
+      }
+    })
+
+    res.status(200).json(postUsers)
+  } catch (error) {
+    res.status(404).json(error)
+  }
 })
 
 export default router

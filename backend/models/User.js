@@ -22,6 +22,14 @@ const User = new mongoose.Schema({
     type: String,
     default: "null",
   },
+  picture: {
+    required: false,
+    type: String,
+  },
+  about: {
+    required: false,
+    type: String,
+  },
 })
 
 // Password Hash

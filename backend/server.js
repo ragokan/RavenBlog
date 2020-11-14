@@ -30,6 +30,15 @@ app.use("/api/getuser", GetUser)
 app.use("/api/posts", Post)
 app.use("/api/posts", CommentLike)
 
+// In deploy
+// app.use((req, res, next) => {
+//   if (req.header("x-forwarded-proto") !== "https") {
+//     res.redirect(`https://${req.header("host")}${req.url}`)
+//   } else {
+//     next()
+//   }
+// })
+
 // Connect
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => console.log("Server is runninng right now!"))
