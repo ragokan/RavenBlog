@@ -3,6 +3,7 @@ import moment from "moment"
 import { PostContext } from "../../context/PostContext"
 import { AuthContext } from "../../context/AuthContext"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 const LikeDislike = ({ post }) => {
   const { likePost, dislikePost } = useContext(PostContext)
@@ -19,28 +20,35 @@ const LikeDislike = ({ post }) => {
   }
 
   return (
-    <div className="card-action ">
-      <p>
+    <motion.div
+      className="card-action"
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <motion.p layout>
         Posted {moment(post.createdAt).calendar()} by{" "}
         <Link className="tealLink" to={`/profiles/${post.author._id}`}>
           {post.author.fullname}
         </Link>
-      </p>
-      <div
+      </motion.p>
+      <motion.div
+        layout
         className="btn-small green waves-effect waves-light  mr-1"
         onClick={() => likePost(post._id)}
       >
-        <i className="material-icons left">thumb_up</i>
+        <motion.i className="material-icons left">thumb_up</motion.i>
         {post.likes.length} {likeStatus && "- You liked :)"}
-      </div>
-      <div
+      </motion.div>
+      <motion.div
+        layout
         className="btn-small red waves-effect waves-light"
         onClick={() => dislikePost(post._id)}
       >
-        <i className="material-icons left">thumb_down</i>
+        <motion.i className="material-icons left">thumb_down</motion.i>
         {post.dislikes.length} {dislikeStatus && "- You disliked :("}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
 
