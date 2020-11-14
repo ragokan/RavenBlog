@@ -189,7 +189,7 @@
   right: 5px !important;
 }
 
-.halfway-fab:nth-child(2) {
+.closeButton {
   position: absolute !important;
   top: 50px;
   right: 5px !important;
@@ -213,4 +213,8 @@
 
 .tealLink:hover {
   color: #00bfa5 !important;
+}
+
+.modal {
+  max-width: 600px;
 }

@@ -6,7 +6,7 @@ import UserLinks from "./UserLinks"
 const Navbar = ({ user }) => {
   return (
     <>
-      <nav className="teal darken-1">
+      <nav className="teal lighten-1">
         <div className="nav-wrapper container">
           <Link to="/" className="brand-logo">
             Raven

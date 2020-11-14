@@ -6,6 +6,7 @@ import {
   addPostAction,
   addLikeAction,
   adddisLikeAction,
+  deletePostAction,
 } from "./actions/PostActions"
 
 export const PostContext = createContext()
@@ -31,9 +32,21 @@ const PostContextProvider = (props) => {
     adddisLikeAction(id, posts, setPosts, addAlert)
   }
 
+  function deletePost(id) {
+    deletePostAction(id, posts, setPosts, addAlert, setMainLoading)
+  }
+
   return (
     <PostContext.Provider
-      value={{ posts, setPosts, getPosts, addPost, likePost, dislikePost }}
+      value={{
+        posts,
+        setPosts,
+        getPosts,
+        addPost,
+        likePost,
+        dislikePost,
+        deletePost,
+      }}
     >
       {props.children}
     </PostContext.Provider>

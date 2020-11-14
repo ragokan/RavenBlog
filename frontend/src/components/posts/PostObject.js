@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 import Comments from "./Comments"
+import DeletePost from "./DeletePost"
 import LikeDislike from "./LikeDislike"
 
 const PostObject = ({ post, user }) => {
@@ -13,9 +14,7 @@ const PostObject = ({ post, user }) => {
             <button className="btn-floating halfway-fab waves-effect waves-light teal lighten-1">
               <i className="material-icons">edit</i>
             </button>
-            <button className="btn-floating halfway-fab waves-effect waves-light red">
-              <i className="material-icons">close</i>
-            </button>
+            <DeletePost postid={post._id} />
           </>
         )}
         <div className="card-content ">

@@ -94,3 +94,30 @@ export const adddisLikeAction = (id, posts, setPosts, addAlert) => {
       )
     })
 }
+
+export const deletePostAction = (
+  id,
+  posts,
+  setPosts,
+  addAlert,
+  setMainLoading
+) => {
+  setMainLoading(true)
+  api
+    .delete(`/posts/${id}`)
+    .then((res) => {
+      setPosts(posts.filter((post) => post._id !== id))
+      setMainLoading(false)
+      addAlert("You sadly deleted your post.", "info", 2500)
+    })
+    .catch((err) => {
+      setMainLoading(false)
+      addAlert(
+        err.response.data
+          ? err.response.data
+          : "Error happened, please try again!",
+        "danger",
+        2500
+      )
+    })
+}
