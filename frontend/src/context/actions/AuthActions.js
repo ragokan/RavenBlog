@@ -51,7 +51,7 @@ const logoutAction = (setToken, setUser, addAlert, setLoading) => {
     })
     .catch((err) => {
       reset().then(() => {
-        addAlert(err.response.data, "danger")
+        addAlert(err.response && err.response.data, "danger")
       })
     })
 }
@@ -66,12 +66,12 @@ const loginAction = (user, setToken, addAlert, setLoading) => {
     })
     .catch((err) => {
       setToken(null)
-      addAlert(err.response.data, "danger")
+      addAlert(err.response && err.response.data, "danger")
       setLoading(false)
     })
 }
 
-const registerAction = (user, setToken, addAlert, setLoading) => {
+const registerAction = (user, setToken, addAlert, setLoading, setAllUsers) => {
   setLoading(true)
   api
     .post("/register", user)
@@ -79,10 +79,11 @@ const registerAction = (user, setToken, addAlert, setLoading) => {
       setToken(res.data)
       addAlert("Registered successfully!", "success")
       setLoading(false)
+      getAllUsersAction(setAllUsers, addAlert, setLoading)
     })
     .catch((err) => {
       setToken(null)
-      addAlert(err.response.data, "danger")
+      addAlert(err.response && err.response.data, "danger")
       setLoading(false)
     })
 }
@@ -96,7 +97,7 @@ const getAllUsersAction = (setAllUsers, addAlert, setMainLoading) => {
       setMainLoading(false)
     })
     .catch((err) => {
-      addAlert(err.response.data, "danger")
+      addAlert(err.response && err.response.data, "danger")
       setMainLoading(false)
     })
 }

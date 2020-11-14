@@ -19,7 +19,7 @@ const AuthContextProvider = (props) => {
   const [allUsers, setAllUsers] = useState([])
 
   function registerUser(user) {
-    registerAction(user, setToken, addAlert, setMainLoading)
+    registerAction(user, setToken, addAlert, setMainLoading, setAllUsers)
   }
   function loginUser(user) {
     loginAction(user, setToken, addAlert, setMainLoading)

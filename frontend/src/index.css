@@ -223,6 +223,7 @@
   top: 10px;
   position: absolute;
   right: 0 !important;
+  max-width: 200px;
 }
 
 .profileCard > .card-content > .card-title {

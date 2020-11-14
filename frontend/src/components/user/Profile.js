@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Card, Col, Icon, Row } from "react-materialize"
+import { Link } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
 import { PostContext } from "../../context/PostContext"
 import PostObject from "../posts/PostObject"
@@ -39,8 +40,17 @@ const Profile = ({
 
   const UserDoesntHavePosts = () => (
     <>
-      <h4 className="center">User Doesn't have any posts yet.</h4>
-      {}
+      {user && currentUser && user._id === currentUser._id ? (
+        <div className="center">
+          <h4>You don't have any posts yet.</h4>
+          <h5>
+            {" "}
+            Click <Link to="/createPost">here</Link> to add a post!
+          </h5>
+        </div>
+      ) : (
+        <h4 className="center">User doesn't have any posts yet.</h4>
+      )}
     </>
   )
 
