@@ -32,6 +32,7 @@ const LikeDislike = ({ post }) => {
           {post.author.fullname}
         </Link>
       </motion.p>
+
       <motion.div
         layout
         className="btn-small green waves-effect waves-light  mr-1"

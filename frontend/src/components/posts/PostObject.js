@@ -1,14 +1,24 @@
 import { motion } from "framer-motion"
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
+import { AuthContext } from "../../context/AuthContext"
 import { LoadingContext } from "../../context/LoadingContext"
 
 import Comments from "./Comments"
 import DeletePost from "./DeletePost"
 import LikeDislike from "./LikeDislike"
 
+let defaultimg =
+  "https://icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png"
+
 const PostObject = ({ post, user }) => {
   const { postsLoading } = useContext(LoadingContext)
+  const { allUsers } = useContext(AuthContext)
+
+  let currentUser =
+    allUsers &&
+    user &&
+    allUsers.find((foundUser) => foundUser._id === post.author._id)
 
   const PostLoadedItems = (
     <>
@@ -31,6 +41,17 @@ const PostObject = ({ post, user }) => {
         )}
         <div className="card-content ">
           <span className="card-title">
+            <div className="postprofileimg left">
+              <img
+                src={
+                  currentUser && currentUser.picture
+                    ? currentUser.picture
+                    : defaultimg
+                }
+                alt="Profile img is not found"
+                className="circle responsive-img"
+              />
+            </div>
             <Link className="tealLink" to={`/postDetails/${post._id}`}>
               {post.title}
             </Link>

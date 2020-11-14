@@ -5,6 +5,9 @@ import { AuthContext } from "../../context/AuthContext"
 import { PostContext } from "../../context/PostContext"
 import PostObject from "../posts/PostObject"
 
+let defaultimg =
+  "https://icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png"
+
 const Profile = ({
   match: {
     params: { id },
@@ -67,11 +70,7 @@ const Profile = ({
           >
             <div className="col s2 profileimg">
               <img
-                src={
-                  user.picture
-                    ? user.picture
-                    : "https://icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png"
-                }
+                src={user.picture ? user.picture : defaultimg}
                 alt="Profile img is not found"
                 className="circle responsive-img"
               />
