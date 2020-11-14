@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <>
       {user ? (
-        <div className="card grey lighten-5 hoverable center ">
+        <div className="card grey lighten-5 z-depth-3 center ">
           <br />
           <h3>Your Account</h3>
           <div className="card-content">

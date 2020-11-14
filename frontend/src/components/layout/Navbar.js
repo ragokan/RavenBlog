@@ -1,19 +1,9 @@
-import React, { useContext, useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import GuestLinks from "./GuestLinks"
 import UserLinks from "./UserLinks"
-import { AuthContext } from "../../context/AuthContext"
 
 const Navbar = ({ user }) => {
-  const { token, setToken } = useContext(AuthContext)
-
-  useEffect(() => {
-    if (token) return
-    const storageToken = localStorage.getItem("authtoken")
-
-    setToken(storageToken)
-  }, [token, setToken])
-
   return (
     <>
       <nav className="teal darken-1">

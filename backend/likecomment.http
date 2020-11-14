@@ -1,6 +1,6 @@
 @port = https://ragokan-mern.herokuapp.com/api/posts
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxMTlmYzk2N2I5MDAxNzliY2QwYyIsImlhdCI6MTYwNTI3NzM0NCwiZXhwIjozMTcxNDk3MTk3NDR9.FF7aHzyd9NwH-2NxszxeNh5accZ1Uk1JyZ7tdHHBOak
-@postid = 5fae834d87fa7e00175228ff
+@postid = 5faebfe28defa300171fddbc
 
 POST {{port}}/{{postid}}/dislike HTTP/1.1
 auth-token : {{token}}

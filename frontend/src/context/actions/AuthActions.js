@@ -16,7 +16,7 @@ const getUserAction = (token, setToken, setUser, addAlert, setLoading) => {
     .get("/getuser", config)
     .then((res) => {
       setUser(res.data)
-      addAlert("Logged in successfully!", "success")
+      addAlert("Logged in successfully!", "success", 2500)
       api.defaults.headers.common["auth-token"] = token
       localStorage.setItem("authtoken", token)
       setLoading(false)
@@ -46,7 +46,7 @@ const logoutAction = (setToken, setUser, addAlert, setLoading) => {
     .post("/logout")
     .then(() => {
       reset().then(() => {
-        addAlert("Logged out successfully!")
+        addAlert("Logged out successfully!", "info", 3000)
       })
     })
     .catch((err) => {
