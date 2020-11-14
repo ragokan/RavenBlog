@@ -3,13 +3,13 @@ import { Collapsible, CollapsibleItem, Icon } from "react-materialize"
 import { Link } from "react-router-dom"
 import AddComment from "./AddComment"
 
-const Comments = ({ comments }) => {
+const Comments = ({ comments, id }) => {
   return (
     <div>
       <Collapsible accordion>
         <CollapsibleItem
           expanded={false}
-          header={`Comments`}
+          header={`Comments (${comments.length})`}
           icon={<Icon>comment</Icon>}
           node="div"
         >
@@ -28,7 +28,7 @@ const Comments = ({ comments }) => {
             </div>
           )}
           <hr />
-          <AddComment />
+          <AddComment id={id} />
         </CollapsibleItem>
       </Collapsible>
     </div>

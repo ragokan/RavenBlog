@@ -95,6 +95,29 @@ export const adddisLikeAction = (id, posts, setPosts, addAlert) => {
     })
 }
 
+export const addCommentAction = (id, comment, posts, setPosts, addAlert) => {
+  api
+    .post(`/posts/${id}/comment`, { text: comment })
+    .then((res) => {
+      const newPost = res.data
+      let allPosts = Array.from(posts)
+      let index = allPosts.findIndex((item) => item._id === id)
+
+      allPosts[index].comments = newPost.comments
+      setPosts(allPosts)
+      addAlert("You successfully commented on post!", "success", 1500)
+    })
+    .catch((err) => {
+      addAlert(
+        err.response.data
+          ? err.response.data
+          : "Error happened, please try again!",
+        "danger",
+        2500
+      )
+    })
+}
+
 export const deletePostAction = (
   id,
   posts,

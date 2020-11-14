@@ -1,14 +1,29 @@
-import React from "react"
+import React, { useContext, useState } from "react"
+import { PostContext } from "../../context/PostContext"
 
-const AddComment = () => {
+const AddComment = ({ id }) => {
+  const { addComment } = useContext(PostContext)
+  const [comment, setComment] = useState("")
+
+  const commentForm = (e) => {
+    e.preventDefault()
+    addComment(id, comment)
+  }
+
   return (
     <>
       <h5 className=" center">Add your comment!</h5>
       <div className="row">
-        <form className="col-md">
+        <form className="col-md" onSubmit={(e) => commentForm(e)}>
           <div className="row">
             <div className="input-field col s8 ">
-              <input id="name" type="text" className="validate " />
+              <input
+                id="name"
+                type="text"
+                className="validate"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
               <label htmlFor="name" className="">
                 Comment
               </label>

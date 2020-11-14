@@ -29,7 +29,7 @@ const PostObject = ({ post, user }) => {
         <LikeDislike post={post} />
 
         <div className="card-action">
-          <Comments comments={post.comments} />
+          <Comments comments={post.comments} id={post._id} />
         </div>
       </div>
     </>
