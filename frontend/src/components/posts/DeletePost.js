@@ -4,6 +4,7 @@ import { PostContext } from "../../context/PostContext"
 
 const DeletePost = ({ postid }) => {
   const { deletePost } = useContext(PostContext)
+  const postAction = () => deletePost(postid)
 
   return (
     <div>
@@ -14,7 +15,7 @@ const DeletePost = ({ postid }) => {
             modal="close"
             node="button"
             waves="green"
-            onClick={() => deletePost(postid)}
+            onClick={() => postAction()}
           >
             Yes, delete it!
           </Button>,

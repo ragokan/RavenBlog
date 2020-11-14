@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
 
-const UserLinks = () => {
+const UserLinks = ({ id }) => {
   const { logoutUser } = useContext(AuthContext)
 
   return (
@@ -11,7 +11,7 @@ const UserLinks = () => {
         <Link to="/createPost">Create Post</Link>
       </li>
       <li>
-        <Link to="/profile">Profile</Link>
+        <Link to={`/profile/${id}`}>Profile</Link>
       </li>
       <li>
         <Link to="/dashboard">Dashboard</Link>

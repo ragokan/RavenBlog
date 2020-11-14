@@ -11,10 +11,11 @@ const EditPost = ({
   useEffect(() => {
     if (posts) {
       let foundPost = posts.find((post) => post._id === id)
+      if (!foundPost) return history.push("/")
       setTitle(foundPost.title)
       setBody(foundPost.body)
     }
-  }, [posts, id])
+  }, [posts, id, history])
 
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")

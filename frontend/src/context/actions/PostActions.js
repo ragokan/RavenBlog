@@ -172,9 +172,7 @@ export const deletePostAction = (
     .catch((err) => {
       setMainLoading(false)
       addAlert(
-        err.response.data
-          ? err.response.data
-          : "Error happened, please try again!",
+        err.response ? err.response.data : "Error happened, please try again!",
         "danger",
         2500
       )

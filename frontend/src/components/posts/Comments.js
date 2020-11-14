@@ -1,37 +1,17 @@
-import React from "react"
-import { Collapsible, CollapsibleItem, Icon } from "react-materialize"
-import { Link } from "react-router-dom"
-import AddComment from "./AddComment"
-import { motion } from "framer-motion"
+import React, { useContext } from "react"
+import CollapsibleComments from "./CollapsibleComments"
+import DetailedComments from "./DetailedComments"
+import { AuthContext } from "../../context/AuthContext"
 
-const Comments = ({ comments, id }) => {
-  return (
+const Comments = ({ comments, id, details }) => {
+  const { user } = useContext(AuthContext)
+  return !details ? (
     <div>
-      <Collapsible accordion>
-        <CollapsibleItem
-          expanded={false}
-          header={`Comments (${comments.length})`}
-          icon={<Icon>comment</Icon>}
-          node="div"
-        >
-          {comments.length > 0 ? (
-            comments.map((comment) => (
-              <motion.h6 key={comment._id} className="">
-                <Link className="mr-n1 tealLink" to="/">
-                  {comment.fullname}
-                </Link>
-                : {comment.text}
-              </motion.h6>
-            ))
-          ) : (
-            <div className=" center">
-              There are no comment yet, why don't you add one ?
-            </div>
-          )}
-          <hr />
-          <AddComment id={id} />
-        </CollapsibleItem>
-      </Collapsible>
+      <CollapsibleComments comments={comments} id={id} user={user} />
+    </div>
+  ) : (
+    <div>
+      <DetailedComments comments={comments} id={id} user={user} />
     </div>
   )
 }

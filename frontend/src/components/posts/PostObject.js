@@ -22,7 +22,7 @@ const PostObject = ({ post, user }) => {
         )}
         <div className="card-content ">
           <span className="card-title">
-            <Link className="tealLink" to="">
+            <Link className="tealLink" to={`/postDetails/${post._id}`}>
               {post.title}
             </Link>
           </span>

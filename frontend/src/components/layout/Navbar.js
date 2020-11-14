@@ -15,12 +15,12 @@ const Navbar = ({ user }) => {
             <i className="material-icons">menu</i>
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            {user ? <UserLinks /> : <GuestLinks />}
+            {user ? <UserLinks id={user._id} /> : <GuestLinks />}
           </ul>
         </div>
       </nav>
       <ul className="sidenav" id="mobile-demo">
-        {user ? <UserLinks /> : <GuestLinks />}
+        {user ? <UserLinks id={user._id} /> : <GuestLinks />}
       </ul>
     </>
   )

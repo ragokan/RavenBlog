@@ -17,6 +17,7 @@ import { AuthContext } from "../../context/AuthContext"
 import HomePage from "../layout/HomePage"
 import CreatePost from "../posts/CreatePost"
 import EditPost from "../posts/EditPost"
+import PostDetails from "../posts/PostDetails"
 
 const Routes = () => {
   const { user } = useContext(AuthContext)
@@ -36,9 +37,10 @@ const Routes = () => {
             <Route exact path="/register" component={Register}>
               {user && <Redirect to="/" />}
             </Route>
-            <PrivateRoute exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/profile/:id" component={Profile} />
             <PrivateRoute exact path="/createPost" component={CreatePost} />
             <PrivateRoute exact path="/editPost/:id" component={EditPost} />
+            <Route exact path="/postDetails/:id" component={PostDetails} />
           </Switch>
         </div>
       </Router>
