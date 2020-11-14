@@ -18,6 +18,7 @@ import HomePage from "../layout/HomePage"
 import CreatePost from "../posts/CreatePost"
 import EditPost from "../posts/EditPost"
 import PostDetails from "../posts/PostDetails"
+import FetchLoader from "../utils/FetchLoader"
 
 const Routes = () => {
   const { user } = useContext(AuthContext)
@@ -26,6 +27,7 @@ const Routes = () => {
       <Router>
         <Navbar user={user} />
         <Spinner />
+        <FetchLoader />
         <AlertHolder />
         <div className="container">
           <Switch>
