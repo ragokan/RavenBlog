@@ -3,10 +3,10 @@ import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
 import { LoadingContext } from "../../context/LoadingContext"
-
 import Comments from "./Comments"
 import DeletePost from "./DeletePost"
 import LikeDislike from "./LikeDislike"
+import moment from "moment"
 
 let defaultimg =
   "https://icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png"
@@ -56,7 +56,13 @@ const PostObject = ({ post, user }) => {
               {post.title}
             </Link>
           </span>
-          <p>{post.body}</p>
+          <motion.p layout>
+            By{" "}
+            <Link className="tealLink" to={`/profiles/${post.author._id}`}>
+              {post.author.fullname}
+            </Link>{" "}
+            Posted at {moment(post.createdAt).calendar()} by{" "}
+          </motion.p>
         </div>
 
         <LikeDislike post={post} />

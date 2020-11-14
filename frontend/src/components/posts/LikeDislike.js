@@ -1,8 +1,6 @@
 import React, { useContext } from "react"
-import moment from "moment"
 import { PostContext } from "../../context/PostContext"
 import { AuthContext } from "../../context/AuthContext"
-import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 
 const LikeDislike = ({ post }) => {
@@ -26,13 +24,7 @@ const LikeDislike = ({ post }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <motion.p layout>
-        Posted {moment(post.createdAt).calendar()} by{" "}
-        <Link className="tealLink" to={`/profiles/${post.author._id}`}>
-          {post.author.fullname}
-        </Link>
-      </motion.p>
-
+      <p>{post.body}</p>
       <motion.div
         layout
         className="btn-small green waves-effect waves-light  mr-1"
