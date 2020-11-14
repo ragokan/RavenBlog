@@ -16,7 +16,7 @@ const Navbar = ({ user }) => {
 
   return (
     <>
-      <nav className="deep-orange">
+      <nav className="teal">
         <div className="nav-wrapper container">
           <Link to="/" className="brand-logo">
             Raven

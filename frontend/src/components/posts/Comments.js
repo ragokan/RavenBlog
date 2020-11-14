@@ -15,12 +15,15 @@ const Comments = ({ comments }) => {
         >
           {comments.length > 0 ? (
             comments.map((comment) => (
-              <h6 key={comment._id} className="white-text">
-                <Link to="">{comment.fullname}</Link> : {comment.text}
+              <h6 key={comment._id} className="">
+                <Link className="mr-n1 tealLink" to="/">
+                  {comment.fullname}
+                </Link>
+                : {comment.text}
               </h6>
             ))
           ) : (
-            <div className="white-text center">
+            <div className=" center">
               There are no comment yet, why don't you add one ?
             </div>
           )}

@@ -3,19 +3,19 @@ import React from "react"
 const AddComment = () => {
   return (
     <>
-      <h5 className="white-text center">Add your comment!</h5>
+      <h5 className=" center">Add your comment!</h5>
       <div className="row">
         <form className="col-md">
           <div className="row">
-            <div className="input-field col s8 white-text">
-              <input id="name" type="text" className="validate white-text" />
-              <label htmlFor="name" className="white-text">
+            <div className="input-field col s8 ">
+              <input id="name" type="text" className="validate " />
+              <label htmlFor="name" className="">
                 Comment
               </label>
             </div>
-            <div className="input-field col s4 white-text">
+            <div className="input-field col s4 ">
               <button
-                className="btn waves-effect waves-light green white-text"
+                className="btn waves-effect waves-light green "
                 type="submit"
               >
                 Add Comment!

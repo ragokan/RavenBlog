@@ -202,3 +202,15 @@
 .mt-1 {
   margin-top: 10px;
 }
+
+.mr-n1 {
+  margin-right: 3px !important;
+}
+
+.tealLink {
+  color: #009688 !important;
+}
+
+.tealLink:hover {
+  color: #00bfa5 !important;
+}

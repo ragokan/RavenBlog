@@ -17,7 +17,7 @@ const Alert = ({ color, message }) => {
 
   return (
     <motion.div layout className={`card ${alertColor} `}>
-      <div className="card-content white-text">
+      <div className="card-content ">
         <p>
           {message || "This is an empty green alert."}
           <i className="material-icons left">{alertIcon}</i>

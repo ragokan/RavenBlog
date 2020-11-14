@@ -18,7 +18,7 @@ const LikeDislike = ({ post }) => {
   }
 
   return (
-    <div className="card-action white-text">
+    <div className="card-action ">
       <p>
         Posted {moment(post.createdAt).calendar()} by {post.author.fullname}
       </p>

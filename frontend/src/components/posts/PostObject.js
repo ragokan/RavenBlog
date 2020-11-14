@@ -6,7 +6,7 @@ import LikeDislike from "./LikeDislike"
 const PostObject = ({ post, user }) => {
   return (
     <>
-      <div className="card deep-orange hoverable">
+      <div className="card grey lighten-5 hoverable">
         {user && post.author._id === user && (
           <>
             <button className="btn-floating halfway-fab waves-effect waves-light teal lighten-1">
@@ -17,7 +17,7 @@ const PostObject = ({ post, user }) => {
             </button>
           </>
         )}
-        <div className="card-content white-text">
+        <div className="card-content ">
           <span className="card-title">{post.title}</span>
           <p>{post.body}</p>
         </div>

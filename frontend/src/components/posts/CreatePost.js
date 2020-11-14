@@ -47,7 +47,7 @@ const CreatePost = ({ history }) => {
             </div>
           </div>
         </div>
-        <button className="btn-large deep-orange waves-effect waves-light">
+        <button className="btn-large teal waves-effect waves-light">
           Add Post!
         </button>
       </div>
