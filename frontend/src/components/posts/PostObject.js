@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import React from "react"
 import { Link } from "react-router-dom"
 
@@ -8,7 +9,12 @@ import LikeDislike from "./LikeDislike"
 const PostObject = ({ post, user }) => {
   return (
     <>
-      <div className="card grey lighten-5 z-depth-3">
+      <motion.div
+        className="card grey lighten-5 z-depth-3"
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         {user && post.author._id === user && (
           <>
             <Link
@@ -34,7 +40,7 @@ const PostObject = ({ post, user }) => {
         <div className="card-action">
           <Comments comments={post.comments} id={post._id} />
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

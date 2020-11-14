@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import moment from "moment"
 import { PostContext } from "../../context/PostContext"
 import { AuthContext } from "../../context/AuthContext"
+import { Link } from "react-router-dom"
 
 const LikeDislike = ({ post }) => {
   const { likePost, dislikePost } = useContext(PostContext)
@@ -20,7 +21,10 @@ const LikeDislike = ({ post }) => {
   return (
     <div className="card-action ">
       <p>
-        Posted {moment(post.createdAt).calendar()} by {post.author.fullname}
+        Posted {moment(post.createdAt).calendar()} by{" "}
+        <Link className="tealLink" to={`/profiles/${post.author._id}`}>
+          {post.author.fullname}
+        </Link>
       </p>
       <div
         className="btn-small green waves-effect waves-light  mr-1"
