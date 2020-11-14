@@ -11,7 +11,7 @@ const UserLinks = ({ id }) => {
         <Link to="/createPost">Create Post</Link>
       </li>
       <li>
-        <Link to={`/profile/${id}`}>Profile</Link>
+        <Link to={`/profiles/${id}`}>Profile</Link>
       </li>
       <li>
         <Link to="/dashboard">Dashboard</Link>

@@ -37,7 +37,7 @@ const Routes = () => {
             <Route exact path="/register" component={Register}>
               {user && <Redirect to="/" />}
             </Route>
-            <PrivateRoute exact path="/profile/:id" component={Profile} />
+            <PrivateRoute exact path="/profiles/:id" component={Profile} />
             <PrivateRoute exact path="/createPost" component={CreatePost} />
             <PrivateRoute exact path="/editPost/:id" component={EditPost} />
             <Route exact path="/postDetails/:id" component={PostDetails} />

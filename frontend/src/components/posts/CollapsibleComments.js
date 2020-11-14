@@ -17,7 +17,10 @@ const CollapsibleComments = ({ comments, id, user }) => {
           {comments.length > 0 ? (
             comments.map((comment) => (
               <motion.h6 key={comment._id} className="">
-                <Link className="mr-n1 tealLink" to="/">
+                <Link
+                  className="mr-n1 tealLink"
+                  to={`/profiles/${comment.user}`}
+                >
                   {comment.fullname}
                 </Link>
                 : {comment.text}
