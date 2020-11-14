@@ -1,5 +1,6 @@
 import React from "react"
 import { Collapsible, CollapsibleItem, Icon } from "react-materialize"
+import { Link } from "react-router-dom"
 import AddComment from "./AddComment"
 
 const Comments = ({ comments }) => {
@@ -15,7 +16,7 @@ const Comments = ({ comments }) => {
           {comments.length > 0 ? (
             comments.map((comment) => (
               <h6 key={comment._id} className="white-text">
-                {comment.fullname} : {comment.text}
+                <Link to="">{comment.fullname}</Link> : {comment.text}
               </h6>
             ))
           ) : (
