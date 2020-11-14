@@ -118,6 +118,42 @@ export const addCommentAction = (id, comment, posts, setPosts, addAlert) => {
     })
 }
 
+export const editPostAction = (
+  id,
+  post,
+  posts,
+  setPosts,
+  addAlert,
+  setMainLoading,
+  callback
+) => {
+  setMainLoading(true)
+  api
+    .patch(`/posts/${id}`, post)
+    .then((res) => {
+      const newPost = res.data
+      let allPosts = Array.from(posts)
+      let index = allPosts.findIndex((item) => item._id === id)
+
+      allPosts[index].title = newPost.title
+      allPosts[index].body = newPost.body
+      setPosts(allPosts)
+      addAlert("You successfully updated your post!", "success", 3500)
+      setMainLoading(false)
+      callback && callback()
+    })
+    .catch((err) => {
+      setMainLoading(false)
+      addAlert(
+        err.response.data
+          ? err.response.data
+          : "Error happened, please try again!",
+        "danger",
+        2500
+      )
+    })
+}
+
 export const deletePostAction = (
   id,
   posts,

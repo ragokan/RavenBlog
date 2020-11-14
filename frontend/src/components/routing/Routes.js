@@ -16,6 +16,7 @@ import Spinner from "../utils/Spinner"
 import { AuthContext } from "../../context/AuthContext"
 import HomePage from "../layout/HomePage"
 import CreatePost from "../posts/CreatePost"
+import EditPost from "../posts/EditPost"
 
 const Routes = () => {
   const { user } = useContext(AuthContext)
@@ -37,6 +38,7 @@ const Routes = () => {
             </Route>
             <PrivateRoute exact path="/profile" component={Profile} />
             <PrivateRoute exact path="/createPost" component={CreatePost} />
+            <PrivateRoute exact path="/editPost/:id" component={EditPost} />
           </Switch>
         </div>
       </Router>

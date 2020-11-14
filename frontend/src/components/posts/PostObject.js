@@ -11,9 +11,12 @@ const PostObject = ({ post, user }) => {
       <div className="card grey lighten-5 z-depth-3">
         {user && post.author._id === user && (
           <>
-            <button className="btn-floating halfway-fab waves-effect waves-light teal lighten-1">
+            <Link
+              to={`/editPost/${post._id}`}
+              className="btn-floating halfway-fab waves-effect waves-light teal lighten-1"
+            >
               <i className="material-icons">edit</i>
-            </button>
+            </Link>
             <DeletePost postid={post._id} />
           </>
         )}
