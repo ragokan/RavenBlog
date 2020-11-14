@@ -4,6 +4,7 @@ import {
   getUserAction,
   logoutAction,
   loginAction,
+  getAllUsersAction,
 } from "./actions/AuthActions"
 import { AlertContext } from "./AlertContext"
 import { LoadingContext } from "./LoadingContext"
@@ -15,6 +16,7 @@ const AuthContextProvider = (props) => {
   const { setMainLoading } = useContext(LoadingContext)
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
+  const [allUsers, setAllUsers] = useState([])
 
   function registerUser(user) {
     registerAction(user, setToken, addAlert, setMainLoading)
@@ -28,6 +30,11 @@ const AuthContextProvider = (props) => {
   function logoutUser() {
     logoutAction(setToken, setUser, addAlert, setMainLoading)
   }
+
+  function getAllUsers() {
+    getAllUsersAction(setAllUsers, addAlert, setMainLoading)
+  }
+
   useEffect(
     () => {
       token && fetchUser()
@@ -44,6 +51,8 @@ const AuthContextProvider = (props) => {
         loginUser,
         logoutUser,
         registerUser,
+        allUsers,
+        getAllUsers,
       }}
     >
       {props.children}

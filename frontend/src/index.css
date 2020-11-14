@@ -218,3 +218,21 @@
 .modal {
   max-width: 600px;
 }
+
+.profileimg {
+  top: 10px;
+  position: absolute;
+  right: 0 !important;
+}
+
+.profileCard > .card-content > .card-title {
+  margin-top: 30px;
+  font-size: 40px;
+}
+.profileCard > .card-content > p {
+  font-size: 20px;
+}
+
+.godown {
+  margin-bottom: 75px;
+}

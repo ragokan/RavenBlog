@@ -87,4 +87,24 @@ const registerAction = (user, setToken, addAlert, setLoading) => {
     })
 }
 
-export { registerAction, getUserAction, logoutAction, loginAction }
+const getAllUsersAction = (setAllUsers, addAlert, setMainLoading) => {
+  setMainLoading(true)
+  api
+    .get("/users")
+    .then((res) => {
+      setAllUsers(res.data)
+      setMainLoading(false)
+    })
+    .catch((err) => {
+      addAlert(err.response.data, "danger")
+      setMainLoading(false)
+    })
+}
+
+export {
+  registerAction,
+  getUserAction,
+  logoutAction,
+  loginAction,
+  getAllUsersAction,
+}

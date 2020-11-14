@@ -4,7 +4,7 @@ import { PostContext } from "../../context/PostContext"
 
 const EmptyFooter = () => {
   const { getPosts } = useContext(PostContext)
-  const { token, setToken } = useContext(AuthContext)
+  const { token, setToken, getAllUsers } = useContext(AuthContext)
 
   useEffect(() => {
     if (token) return
@@ -15,6 +15,7 @@ const EmptyFooter = () => {
   useEffect(
     () => {
       getPosts()
+      getAllUsers()
     },
     /*eslint-disable*/ []
   )

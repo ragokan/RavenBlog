@@ -25,12 +25,14 @@ import GetUser from "./routes/GetUser.js"
 import Post from "./routes/Post.js"
 import CommentLike from "./routes/CommentLike.js"
 import Profile from "./routes/Profile.js"
+import AllUsers from "./routes/AllUsers.js"
 app.use("/api/register", Register)
 app.use("/api", Loginout)
 app.use("/api/getuser", GetUser)
 app.use("/api/posts", Post)
 app.use("/api/posts", CommentLike)
 app.use("/api/profile", Profile)
+app.use("/api/users", AllUsers)
 
 // In deploy
 // app.use((req, res, next) => {

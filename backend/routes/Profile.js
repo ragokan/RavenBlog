@@ -31,7 +31,7 @@ router.patch("/about", auth, async (req, res) => {
     user.about = about
     await user.save()
 
-    res.status(200).json(user)
+    res.status(200).json(user.about)
   } catch (error) {
     res.status(400).json(error)
   }
