@@ -14,7 +14,6 @@ const Profile = ({
   const { posts } = useContext(PostContext)
 
   let user = allUsers.find((aUser) => aUser._id === id)
-  console.log(user)
 
   if (!user) {
     return (
