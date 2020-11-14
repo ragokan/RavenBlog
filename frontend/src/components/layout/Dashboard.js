@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
+import About from "../user/About"
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext)
@@ -14,7 +15,7 @@ const Dashboard = () => {
             <span className="card-title">{user.fullname}</span>
             <p>{user.email}</p>
           </div>
-          <br />
+          <About />
         </div>
       ) : (
         <div>

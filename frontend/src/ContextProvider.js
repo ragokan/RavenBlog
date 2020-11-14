@@ -3,6 +3,7 @@ import AlertContextProvider from "./context/AlertContext"
 import AuthContextProvider from "./context/AuthContext"
 import LoadingContextProvider from "./context/LoadingContext"
 import PostContextProvider from "./context/PostContext"
+import UserContextProvider from "./context/UserContext"
 
 const ContextProvider = ({ children }) => {
   return (
@@ -11,7 +12,7 @@ const ContextProvider = ({ children }) => {
         <LoadingContextProvider>
           <AuthContextProvider>
             <PostContextProvider>
-              <>{children}</>
+              <UserContextProvider>{children}</UserContextProvider>
             </PostContextProvider>
           </AuthContextProvider>
         </LoadingContextProvider>
