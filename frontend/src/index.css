@@ -246,3 +246,61 @@
 .updateButton {
   margin-top: 22px;
 }
+
+.chatimg {
+  max-width: 30px;
+  float: left;
+  margin-right: 5px;
+}
+
+.chatmessage {
+  font-size: 15px;
+}
+
+.chat {
+  overflow-y: scroll;
+  max-height: 470px !important;
+}
+
+.messages {
+  height: 550px;
+  max-height: 600px !important;
+  width: 380px !important;
+  max-width: 99%;
+  margin: auto;
+  border: #009688 3px solid;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.messageInput {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+.chat::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+@media screen and (max-width: 800px) {
+  .chatimg {
+    max-width: 30px;
+  }
+
+  .chatmessage {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .messageInput {
+    width: 90%;
+  }
+}
+
+.evenBelow {
+  margin-bottom: -10px;
+}
