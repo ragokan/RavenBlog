@@ -16,6 +16,7 @@ const DeletePost = ({ postid }) => {
             node="button"
             waves="green"
             onClick={() => postAction()}
+            className="red"
           >
             Yes, delete it!
           </Button>,
