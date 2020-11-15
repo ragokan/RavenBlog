@@ -27,7 +27,7 @@ const AddMessage = ({ scroll }) => {
 
   return (
     <div>
-      <form onSubmit={(e) => sendMessage(e)} clasName="reduceBot">
+      <form onSubmit={(e) => sendMessage(e)} className="reduceBot">
         <div className="row s12">
           <div className="input-field col s9">
             <input

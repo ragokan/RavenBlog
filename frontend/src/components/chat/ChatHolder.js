@@ -10,7 +10,7 @@ const ChatHolder = () => {
 
   return (
     <div>
-      <div class="fixed-action-btn">
+      <div className="fixed-action-btn">
         <button
           className="btn-floating btn-large teal lighten-1 waves-effect waves-light pulse"
           onClick={() => setShowing(!showing)}

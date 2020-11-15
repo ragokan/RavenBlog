@@ -7,12 +7,12 @@ const FetchLoader = () => {
   return fetchLoading ? (
     <>
       <motion.div
-        class="progress"
+        className="progress"
         layout
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <div class="indeterminate"></div>
+        <div className="indeterminate"></div>
       </motion.div>
     </>
   ) : null

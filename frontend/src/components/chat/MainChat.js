@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 const MainChat = ({ showing }) => {
   const { docs } = FirestoreContext("messages")
-  var array = docs.slice(Math.max(docs.length - 30, 1))
+  var array = docs.slice(Math.max(docs.length - 30, 0))
 
   const bottomText = useRef()
   const scrollToBot = () =>

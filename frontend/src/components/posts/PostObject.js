@@ -86,20 +86,20 @@ const PostObject = ({ post, user }) => {
           <span className="card-title">
             <div className="tealLink">
               <h4>Posts loading</h4>
-              <div class="progress">
-                <div class="indeterminate"></div>
+              <div className="progress">
+                <div className="indeterminate"></div>
               </div>
             </div>
           </span>
           <p>
-            <div class="progress">
-              <div class="indeterminate"></div>
+            <div className="progress">
+              <div className="indeterminate"></div>
             </div>
           </p>
         </div>
         <div className="card-action">
-          <div class="progress">
-            <div class="indeterminate"></div>
+          <div className="progress">
+            <div className="indeterminate"></div>
           </div>
         </div>
       </motion.div>
