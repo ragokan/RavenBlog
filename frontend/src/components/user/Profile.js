@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { Card, Col, Icon, Row } from "react-materialize"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
@@ -81,7 +81,7 @@ const Profile = ({
               <p>
                 {user && currentUser && user._id === currentUser._id ? (
                   <div>
-                    You doesn't have any information about yourself yet. Click
+                    You don't have any information about yourself yet. Click
                     <Link to="/dashboard"> here</Link> to add your information.
                   </div>
                 ) : (

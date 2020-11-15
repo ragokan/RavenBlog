@@ -16,10 +16,10 @@ const getUserAction = (token, setToken, setUser, addAlert, setLoading) => {
     .get("/getuser", config)
     .then((res) => {
       setUser(res.data)
-      addAlert("Logged in successfully!", "success", 2500)
       api.defaults.headers.common["auth-token"] = token
       localStorage.setItem("authtoken", token)
       setLoading(false)
+      addAlert("Logged in successfully!", "success", 2500)
     })
     .catch(() => {
       setToken(null)

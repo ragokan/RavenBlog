@@ -1,11 +1,13 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../context/UserContext"
 
-const About = ({ user }) => {
-  const { updateAbout } = useContext(UserContext)
+const About = () => {
+  const { user, updateAbout } = useContext(UserContext)
   const [aboutText, setAboutText] = useState("")
 
-  user && user.about && setAboutText(user.about)
+  useEffect(() => {
+    user && user.about && setAboutText(user.about)
+  }, [user])
 
   const submitUpdate = () => updateAbout(aboutText)
 

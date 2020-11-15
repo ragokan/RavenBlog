@@ -5,18 +5,26 @@ export const updateAboutAction = (
   user,
   setUser,
   setMainLoading,
-  addAlert
+  addAlert,
+  allUsers,
+  setAllUsers
 ) => {
   api
-    .patch("/profile/about", about)
+    .patch("/profile/about", { about })
     .then((res) => {
-      setUser({ ...user, about: res.data })
+      let newUser = { ...user }
+      newUser.about = res.data
+      setUser(newUser)
+
+      let ourUsers = Array.from(allUsers)
+      let currentUser = ourUsers.findIndex((aUser) => aUser._id === user._id)
+      ourUsers[currentUser] = newUser
+      setAllUsers(ourUsers)
 
       addAlert("About me updated successfully!", "success", 2500)
       setMainLoading(false)
     })
     .catch((err) => {
-      localStorage.removeItem("authtoken")
       addAlert(
         err.response ? err.response.data : "Error happened, please try again!",
         "danger",

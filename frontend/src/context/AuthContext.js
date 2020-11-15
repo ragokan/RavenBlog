@@ -53,6 +53,8 @@ const AuthContextProvider = (props) => {
         registerUser,
         allUsers,
         getAllUsers,
+        fetchUser,
+        setAllUsers,
       }}
     >
       {props.children}
