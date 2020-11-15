@@ -34,10 +34,12 @@ const AddMessage = ({ scroll }) => {
               type="text"
               value={formData}
               onChange={(e) => setFormData(e.target.value)}
+              placeholder="Type your message here!"
+              required
             />
           </div>
           <div className="input-field col s2">
-            <button className="btn" type="submit">
+            <button className="btn waves-effect waves-light" type="submit">
               Send
             </button>
           </div>

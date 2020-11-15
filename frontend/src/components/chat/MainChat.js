@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react"
 import ChatMessage from "./ChatMessage"
 import FirestoreContext from "../../context/FirestoreContext"
 import AddMessage from "./AddMessage"
+import { motion } from "framer-motion"
 
 const MainChat = () => {
   const { docs } = FirestoreContext("messages")
@@ -17,9 +18,19 @@ const MainChat = () => {
 
   return (
     <>
-      <div className="messages">
+      <motion.div
+        className="messages"
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         <div>
-          <div className="row chat">
+          <motion.div
+            className="row chat"
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
             <div>
               {array &&
                 array.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
@@ -32,9 +43,9 @@ const MainChat = () => {
             <div className="messageInput">
               <AddMessage scroll={scrollToBot} />
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
