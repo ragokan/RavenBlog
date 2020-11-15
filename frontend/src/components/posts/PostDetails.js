@@ -7,18 +7,22 @@ import Comments from "./Comments"
 import DeletePost from "./DeletePost"
 import LikeDislike from "./LikeDislike"
 
+let defaultimg =
+  "https://icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png"
+
 const PostDetails = ({
   match: {
     params: { id },
   },
 }) => {
   const { posts } = useContext(PostContext)
-  const { user } = useContext(AuthContext)
+  const { user, allUsers } = useContext(AuthContext)
   let post
 
   if (posts) {
     let foundPost = posts.find((post) => post._id === id)
     post = foundPost
+
     if (!foundPost)
       return (
         <div className="center">
@@ -29,6 +33,10 @@ const PostDetails = ({
         </div>
       )
   }
+  let currentUser =
+    allUsers &&
+    user &&
+    allUsers.find((foundUser) => foundUser._id === post.author._id)
 
   return post ? (
     <>
@@ -46,6 +54,17 @@ const PostDetails = ({
         )}
         <div className="card-content ">
           <span className="card-title">
+            <div className="postprofileimg left">
+              <img
+                src={
+                  currentUser && currentUser.picture
+                    ? currentUser.picture
+                    : defaultimg
+                }
+                alt="Profile img is not found"
+                className="circle responsive-img"
+              />
+            </div>
             <Link className="tealLink" to="">
               {post.title}
             </Link>

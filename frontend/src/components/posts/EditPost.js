@@ -27,7 +27,7 @@ const EditPost = ({
       body,
     }
 
-    editPost(id, post, () => history.push("/"))
+    editPost(id, post, () => history.push(`/postDetails/${id}`))
   }
 
   return (

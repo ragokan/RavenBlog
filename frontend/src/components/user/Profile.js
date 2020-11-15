@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { Card, Col, Icon, Row } from "react-materialize"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
@@ -68,7 +68,7 @@ const Profile = ({
             revealIcon={<Icon>more_vert</Icon>}
             title={user.fullname}
           >
-            <div className="col s2 profileimg">
+            <div className="col s2 profileimg left">
               <img
                 src={user.picture ? user.picture : defaultimg}
                 alt="Profile img is not found"
