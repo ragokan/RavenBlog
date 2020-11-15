@@ -5,7 +5,7 @@ import FirestoreContext from "../../context/FirestoreContext"
 import AddMessage from "./AddMessage"
 import { motion } from "framer-motion"
 
-const MainChat = () => {
+const MainChat = ({ showing }) => {
   const { docs } = FirestoreContext("messages")
   var array = docs.slice(Math.max(docs.length - 20, 1))
   const bottomText = useRef()
@@ -14,12 +14,16 @@ const MainChat = () => {
 
   useEffect(() => {
     scrollToBot()
-  }, [array])
+  }, [array, showing])
+
+  useEffect(() => {
+    scrollToBot()
+  }, [])
 
   return (
-    <>
+    <div className="chatHolder">
       <motion.div
-        className="messages"
+        className="messages z-depth-5"
         layout
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -46,7 +50,7 @@ const MainChat = () => {
           </motion.div>
         </div>
       </motion.div>
-    </>
+    </div>
   )
 }
 

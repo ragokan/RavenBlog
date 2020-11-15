@@ -19,7 +19,7 @@ import CreatePost from "../posts/CreatePost"
 import EditPost from "../posts/EditPost"
 import PostDetails from "../posts/PostDetails"
 import FetchLoader from "../utils/FetchLoader"
-import MainChat from "../chat/MainChat"
+import ChatHolder from "../chat/ChatHolder"
 
 const Routes = () => {
   const { user } = useContext(AuthContext)
@@ -30,6 +30,7 @@ const Routes = () => {
         <Spinner />
         <FetchLoader />
         <AlertHolder />
+        <ChatHolder />
         <div className="container">
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -44,7 +45,6 @@ const Routes = () => {
             <PrivateRoute exact path="/createPost" component={CreatePost} />
             <PrivateRoute exact path="/editPost/:id" component={EditPost} />
             <Route exact path="/postDetails/:id" component={PostDetails} />
-            <PrivateRoute exact path="/chat" component={MainChat} />
           </Switch>
         </div>
       </Router>

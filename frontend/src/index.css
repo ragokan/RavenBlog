@@ -273,6 +273,7 @@
   padding: 5px;
   margin-top: 20px;
   position: relative;
+  background-color: rgb(241, 241, 241);
 }
 
 .messageInput {
@@ -299,8 +300,18 @@
   .messageInput {
     width: 90%;
   }
+  .chatHolder {
+    max-width: 95%;
+  }
 }
 
 .evenBelow {
   margin-bottom: -10px;
+}
+
+.chatHolder {
+  position: fixed;
+  z-index: 100;
+  right: 10px;
+  bottom: 90px;
 }
