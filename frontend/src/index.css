@@ -315,3 +315,8 @@
   right: 10px;
   bottom: 90px;
 }
+
+.timestamp {
+  position: absolute;
+  color: rgb(126, 126, 126);
+}

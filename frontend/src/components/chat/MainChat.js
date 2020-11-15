@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react"
-
 import ChatMessage from "./ChatMessage"
 import FirestoreContext from "../../context/FirestoreContext"
 import AddMessage from "./AddMessage"
@@ -7,7 +6,8 @@ import { motion } from "framer-motion"
 
 const MainChat = ({ showing }) => {
   const { docs } = FirestoreContext("messages")
-  var array = docs.slice(Math.max(docs.length - 20, 1))
+  var array = docs.slice(Math.max(docs.length - 15, 1))
+
   const bottomText = useRef()
   const scrollToBot = () =>
     bottomText.current.scrollIntoView({ behavior: "smooth" })

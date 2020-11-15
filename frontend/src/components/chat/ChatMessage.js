@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import moment from "moment"
 import React, { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
 
@@ -28,6 +29,9 @@ const ChatMessage = ({ message }) => {
             {message.fullname} : {message.text}
           </motion.p>
         </motion.div>
+        <div className={`gray-text timestamp  ${!status ? "right" : "left"}`}>
+          {moment(message.createdAt.toDate()).calendar()}
+        </div>
       </motion.div>
     </>
   )
