@@ -30,7 +30,9 @@ const ChatMessage = ({ message }) => {
           </motion.p>
         </motion.div>
         <div className={`gray-text timestamp  ${!status ? "right" : "left"}`}>
-          {moment(message.createdAt.toDate()).calendar()}
+          {message &&
+            message.createdAt &&
+            moment(message.createdAt.toDate()).calendar()}
         </div>
       </motion.div>
     </>
