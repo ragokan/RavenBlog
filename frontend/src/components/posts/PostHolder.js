@@ -8,13 +8,9 @@ const PostHolder = () => {
   const { user } = useContext(AuthContext)
   return (
     <div>
-      <div className="row">
-        <div className="col s12 m8">
-          {posts.map((post) => (
-            <PostObject key={post._id} post={post} user={user && user._id} />
-          ))}
-        </div>
-      </div>
+      {posts.map((post) => (
+        <PostObject key={post._id} post={post} user={user && user._id} />
+      ))}
     </div>
   )
 }

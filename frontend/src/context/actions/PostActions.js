@@ -1,4 +1,6 @@
 import api from "../utils/api"
+import { addData } from "./FirestoreActions"
+import { timestamp } from "../../firebase/Config"
 
 export const getPostsAction = (setPosts, setPostLoading, addAlert) => {
   setPostLoading(true)
@@ -36,13 +38,19 @@ export const addPostAction = (
       setMainLoading(false)
       addAlert("Post added successfully!", "success")
       success && success()
+      const firestoreData = {
+        type: "POST",
+        user: resp.data.author._id,
+        fullname: resp.data.author.fullname,
+        post: resp.data._id,
+        createdAt: timestamp(),
+      }
+      addData("news", firestoreData)
     })
     .catch((err) => {
       setMainLoading(false)
       addAlert(
-        err.response.data
-          ? err.response.data
-          : "Error happened, please try again!",
+        err.response ? err.response.data : "Error happened, please try again!",
         "danger"
       )
     })

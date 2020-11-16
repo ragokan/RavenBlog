@@ -80,14 +80,14 @@ const Profile = ({
             ) : (
               <p>
                 {user && currentUser && user._id === currentUser._id ? (
-                  <div>
+                  <>
                     You don't have any information about yourself yet. Click
                     <Link to="/dashboard"> here</Link> to add your information.
-                  </div>
+                  </>
                 ) : (
-                  <div>
+                  <>
                     User doesn't have any information about himself/herself yet.
-                  </div>
+                  </>
                 )}
               </p>
             )}

@@ -1,4 +1,6 @@
 import api from "../utils/api"
+import { addData } from "./FirestoreActions"
+import { timestamp } from "../../firebase/Config"
 
 const getUserAction = (token, setToken, setUser, addAlert, setLoading) => {
   setLoading(true)
@@ -78,8 +80,25 @@ const registerAction = (user, setToken, addAlert, setLoading, setAllUsers) => {
     .then((res) => {
       setToken(res.data)
       addAlert("Registered successfully!", "success")
-      setLoading(false)
+
       getAllUsersAction(setAllUsers, addAlert, setLoading)
+
+      let config = {
+        headers: {
+          "auth-token": res.data,
+        },
+      }
+      api.get("/getuser", config).then((res) => {
+        const firestoreData = {
+          type: "USER",
+          user: res.data._id,
+          fullname: res.data.fullname,
+          post: "",
+          createdAt: timestamp(),
+        }
+        addData("news", firestoreData)
+        setLoading(false)
+      })
     })
     .catch((err) => {
       setToken(null)

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState } from "react"
 import { AuthContext } from "../../context/AuthContext"
 import { PostContext } from "../../context/PostContext"
 import FilteredPosts from "./FilteredPosts"
