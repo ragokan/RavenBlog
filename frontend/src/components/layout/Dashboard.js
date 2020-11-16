@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
 import About from "../user/About"
+import ProfileImage from "../user/ProfileImage"
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext)
@@ -15,7 +16,14 @@ const Dashboard = () => {
             <span className="card-title">{user.fullname}</span>
             <p>{user.email}</p>
           </div>
-          <About />
+          <div className="row">
+            <div className="col s12 m6">
+              <ProfileImage />
+            </div>
+            <div className="col s12 m6">
+              <About />
+            </div>
+          </div>
         </div>
       ) : (
         <div>

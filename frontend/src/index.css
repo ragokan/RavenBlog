@@ -325,3 +325,7 @@
   position: fixed;
   z-index: 100;
 }
+
+.dashboardProfile img {
+  max-width: 200px;
+}

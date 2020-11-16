@@ -13,8 +13,8 @@ const About = () => {
 
   return (
     <>
-      <h5>Tell us something about yourself!</h5>
       <div className="row container">
+        <h5 className="">Tell us something about yourself!</h5>
         <div className="col s12">
           <div className="input-field col s8">
             <textarea
