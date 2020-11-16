@@ -326,7 +326,7 @@
   max-width: 200px;
 }
 
-.aboutRaven {
+.search {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
@@ -344,4 +344,8 @@
   align-content: center;
   text-align: center;
   vertical-align: center;
+}
+
+.searchImg {
+  max-width: 160px;
 }

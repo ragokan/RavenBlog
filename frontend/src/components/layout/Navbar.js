@@ -17,8 +17,9 @@ const Navbar = ({ user }) => {
 
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
-              <Link to="/aboutRaven" className="aboutRaven">
-                About Raven
+              <Link to="/search" className="search">
+                Search
+                <i className="material-icons left">search</i>
               </Link>
             </li>
             {user ? <UserLinks id={user._id} /> : <GuestLinks />}
@@ -33,6 +34,10 @@ const Navbar = ({ user }) => {
         <li>
           <Link to="/aboutRaven">About Raven</Link>
         </li>
+        <Link to="/search">
+          <i className="material-icons left">search</i>
+          Search
+        </Link>
       </ul>
     </>
   )

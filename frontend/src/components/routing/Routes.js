@@ -20,6 +20,7 @@ import EditPost from "../posts/EditPost"
 import PostDetails from "../posts/PostDetails"
 import ChatHolder from "../chat/ChatHolder"
 import AboutRaven from "../layout/AboutRaven"
+import Search from "../search/Search"
 
 const Routes = () => {
   const { user } = useContext(AuthContext)
@@ -45,6 +46,7 @@ const Routes = () => {
             <PrivateRoute exact path="/editPost/:id" component={EditPost} />
             <Route exact path="/postDetails/:id" component={PostDetails} />
             <Route exact path="/aboutRaven" component={AboutRaven} />
+            <Route exact path="/search" component={Search} />
           </Switch>
         </div>
       </Router>

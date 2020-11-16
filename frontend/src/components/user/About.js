@@ -23,7 +23,7 @@ const About = () => {
               value={aboutText}
               onChange={(e) => setAboutText(e.target.value)}
             ></textarea>
-            <label htmlFor="textarea1">About You</label>
+            {!aboutText && <label htmlFor="textarea1">About You</label>}
           </div>
           <div className="col s4">
             <button className="btn updateButton" onClick={() => submitUpdate()}>
