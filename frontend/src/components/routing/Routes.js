@@ -18,7 +18,6 @@ import HomePage from "../layout/HomePage"
 import CreatePost from "../posts/CreatePost"
 import EditPost from "../posts/EditPost"
 import PostDetails from "../posts/PostDetails"
-import FetchLoader from "../utils/FetchLoader"
 import ChatHolder from "../chat/ChatHolder"
 import AboutRaven from "../layout/AboutRaven"
 
@@ -29,7 +28,6 @@ const Routes = () => {
       <Router>
         <Navbar user={user} />
         <Spinner />
-        <FetchLoader />
         <AlertHolder />
         <ChatHolder />
         <div className="container">
