@@ -10,8 +10,6 @@ const UploadImage = ({ file, setFile }) => {
   const { setMainLoading } = useContext(LoadingContext)
   const { url, progress, error } = FirebaseContext(file)
 
-  console.log(error)
-
   useEffect(
     () => {
       error && addAlert(error, "danger", 4000)

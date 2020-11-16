@@ -20,6 +20,7 @@ import EditPost from "../posts/EditPost"
 import PostDetails from "../posts/PostDetails"
 import FetchLoader from "../utils/FetchLoader"
 import ChatHolder from "../chat/ChatHolder"
+import AboutRaven from "../layout/AboutRaven"
 
 const Routes = () => {
   const { user } = useContext(AuthContext)
@@ -45,6 +46,7 @@ const Routes = () => {
             <PrivateRoute exact path="/createPost" component={CreatePost} />
             <PrivateRoute exact path="/editPost/:id" component={EditPost} />
             <Route exact path="/postDetails/:id" component={PostDetails} />
+            <Route exact path="/aboutRaven" component={AboutRaven} />
           </Switch>
         </div>
       </Router>

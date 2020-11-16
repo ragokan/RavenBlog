@@ -251,6 +251,7 @@
   max-width: 30px;
   float: left;
   margin-right: 5px;
+  border-radius: 50%;
 }
 
 .chatmessage {
@@ -328,4 +329,24 @@
 
 .dashboardProfile img {
   max-width: 200px;
+}
+
+.aboutRaven {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.aboutRavenCard .card {
+  min-width: 350px;
+  margin: auto;
+}
+
+.aboutRavenCard {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  vertical-align: center;
 }
