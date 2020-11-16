@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import moment from "moment"
 import React, { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
+import ReactEmoji from "react-emoji"
 
 const ChatMessage = ({ message }) => {
   const { user } = useContext(AuthContext)
@@ -26,7 +27,7 @@ const ChatMessage = ({ message }) => {
               alt="avatarofpublisher"
               className="chatimg"
             />{" "}
-            {message.fullname} : {message.text}
+            {message.fullname} : {ReactEmoji.emojify(message.text)}
           </motion.p>
         </motion.div>
         <div className={`gray-text timestamp  ${!status ? "right" : "left"}`}>

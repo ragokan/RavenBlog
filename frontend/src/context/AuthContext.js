@@ -32,7 +32,7 @@ const AuthContextProvider = (props) => {
   }
 
   function getAllUsers() {
-    getAllUsersAction(setAllUsers, addAlert, setMainLoading)
+    getAllUsersAction(setAllUsers, addAlert)
   }
 
   useEffect(

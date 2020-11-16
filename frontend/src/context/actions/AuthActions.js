@@ -81,7 +81,7 @@ const registerAction = (user, setToken, addAlert, setLoading, setAllUsers) => {
       setToken(res.data)
       addAlert("Registered successfully!", "success")
 
-      getAllUsersAction(setAllUsers, addAlert, setLoading)
+      getAllUsersAction(setAllUsers, addAlert)
 
       let config = {
         headers: {
@@ -108,16 +108,13 @@ const registerAction = (user, setToken, addAlert, setLoading, setAllUsers) => {
 }
 
 const getAllUsersAction = (setAllUsers, addAlert, setMainLoading) => {
-  setMainLoading(true)
   api
     .get("/users")
     .then((res) => {
       setAllUsers(res.data)
-      setMainLoading(false)
     })
     .catch((err) => {
       addAlert(err.response && err.response.data, "danger")
-      setMainLoading(false)
     })
 }
 

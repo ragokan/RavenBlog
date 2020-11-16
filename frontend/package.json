@@ -12,6 +12,7 @@
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-emoji": "^0.5.0",
     "react-firebase-hooks": "^2.2.0",
     "react-materialize": "^3.9.3",
     "react-router-dom": "^5.2.0",
