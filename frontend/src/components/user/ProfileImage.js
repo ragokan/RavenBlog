@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from "react"
 import { AlertContext } from "../../context/AlertContext"
 import { AuthContext } from "../../context/AuthContext"
+import UploadImage from "./UploadImage"
 
 let defaultimg =
   "https://icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png"
@@ -44,6 +45,7 @@ const ProfileImage = () => {
           </div>
           <button className="btn-large">Update!</button>
         </form>
+        {file && <UploadImage file={file} setFile={setFile} />}
         <br />
       </div>
     </div>

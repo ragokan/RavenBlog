@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react"
 import { AlertContext } from "./AlertContext"
 import { AuthContext } from "./AuthContext"
 import { LoadingContext } from "./LoadingContext"
-import { updateAboutAction } from "./actions/UserActions"
+import { updateAboutAction, updateProfileAction } from "./actions/UserActions"
 
 export const UserContext = createContext()
 
@@ -23,8 +23,20 @@ const UserContextProvider = (props) => {
     )
   }
 
+  function updateProfile(image) {
+    updateProfileAction(
+      image,
+      user,
+      setUser,
+      setMainLoading,
+      addAlert,
+      allUsers,
+      setAllUsers
+    )
+  }
+
   return (
-    <UserContext.Provider value={{ updateAbout, user }}>
+    <UserContext.Provider value={{ updateAbout, user, updateProfile }}>
       {props.children}
     </UserContext.Provider>
   )
