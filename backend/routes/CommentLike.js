@@ -72,4 +72,29 @@ router.post("/:id/comment", auth, async (req, res) => {
   }
 })
 
+router.delete("/comment/:postID", auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.postID)
+    if (!post) return res.status(404).json("No post found with that id!")
+
+    const comment = post.comments.find((item) => item._id == req.body.commentID)
+    if (!comment) return res.status(404).json("No comment found with that id!")
+
+    if (comment.user != req.user.id || post.author != req.user.id)
+      return res
+        .status(401)
+        .json("You can't delete others comment if you are not the author!")
+
+    let newPost = await Post.findByIdAndUpdate(req.params.postID, {
+      comments: post.comments.filter((item) => item._id !== comment._id),
+      new: true,
+    })
+    await newPost.save()
+
+    res.status(200).json(newPost)
+  } catch (error) {
+    res.status(400).json("Error : " + error)
+  }
+})
+
 export default router

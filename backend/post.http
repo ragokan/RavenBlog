@@ -1,5 +1,5 @@
 @port = http://127.0.0.1:8000/api/posts
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxMTlmYzk2N2I5MDAxNzliY2QwYyIsImlhdCI6MTYwNTM1MDYyNCwiZXhwIjozMTcxNDk3OTMwMjR9.WG5qNTe_rxjG7PrIHwuZkj2hxjv1CftHpv4qllNsaWM
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQxMTlmYzk2N2I5MDAxNzliY2QwYyIsImlhdCI6MTYwNTQ2MzE1NSwiZXhwIjozMTcxNDk5MDU1NTV9.a-kwdjfl2YEojB5U687deO8K2UpOh-Zga23Nqik3FQM
 @postid = 5fae68df67c7500017f432ad
 
 POST {{port}} HTTP/1.1
