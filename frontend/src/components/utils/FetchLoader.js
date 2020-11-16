@@ -7,7 +7,7 @@ const FetchLoader = () => {
   return fetchLoading ? (
     <>
       <motion.div
-        className="progress"
+        className="progress fetchLoading"
         layout
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -320,3 +320,8 @@
   position: absolute;
   color: rgb(126, 126, 126);
 }
+
+.fetchLoading {
+  position: fixed;
+  z-index: 100;
+}
