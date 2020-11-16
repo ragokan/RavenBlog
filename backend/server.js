@@ -34,7 +34,7 @@ app.use("/api/posts", CommentLike)
 app.use("/api/profile", Profile)
 app.use("/api/users", AllUsers)
 
-// In deploy
+// // In deploy
 // app.use((req, res, next) => {
 //   if (req.header("x-forwarded-proto") !== "https") {
 //     res.redirect(`https://${req.header("host")}${req.url}`)
@@ -43,6 +43,19 @@ app.use("/api/users", AllUsers)
 //   }
 // })
 
+import path from "path"
+let __dirname = path.resolve()
+
+// Serve static assets in production
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("client/build"))
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"))
+  })
+}
+
 // Connect
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 9000
 app.listen(PORT, () => console.log("Server is runninng right now!"))
