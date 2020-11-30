@@ -24,10 +24,10 @@
 
   <code>
   JWT_EXPIRE = 9999 Years // Or your preferenced expire <br/>
-  JWT_SECRET = secretkey // You can write anything here   <br/>
+  JWT_SECRET = secretkey // You can write anything here <br/>
   MONGO_URI = yourMongoURI // You can use localhost or from mongodb.
   </code>
 
-#####Final
+##### Final
 
 - In backend and frontend, run "yarn start" or "npm run start"
