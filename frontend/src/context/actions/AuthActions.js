@@ -1,127 +1,73 @@
-import api from "../utils/api"
-import { addData } from "./FirestoreActions"
-import { timestamp } from "../../firebase/Config"
+import api from "../utils/api";
+import { addData } from "./FirestoreActions";
+import { timestamp } from "../../firebase/Config";
 
 const getUserAction = (token, setToken, setUser, addAlert, setLoading) => {
-  setLoading(true)
   let config = {
     headers: {
       "auth-token": token,
     },
-  }
+  };
 
-  if (!token || token == null) {
-    setLoading(false)
-    return
-  }
-  api
-    .get("/getuser", config)
-    .then((res) => {
-      setUser(res.data)
-      api.defaults.headers.common["auth-token"] = token
-      localStorage.setItem("authtoken", token)
-      setLoading(false)
-      addAlert("Logged in successfully!", "success", 2500)
-    })
-    .catch(() => {
-      setToken(null)
-      setUser(null)
-      localStorage.removeItem("authtoken")
-      addAlert(
-        "Problem happened while trying to get user info, please try again!",
-        "danger"
-      )
-      setLoading(false)
-    })
-}
+  if (!token || token == null) return;
+
+  api.get("/getuser", config).then((res) => {
+    setUser(res.data);
+    api.defaults.headers.common["auth-token"] = token;
+    localStorage.setItem("authtoken", token);
+    addAlert("Logged in successfully!", "success", 2500);
+  });
+};
 
 const logoutAction = (setToken, setUser, addAlert, setLoading) => {
-  setLoading(true)
   async function reset() {
-    localStorage.removeItem("authtoken")
-    setToken(null)
-    setUser(null)
-    setLoading(false)
+    localStorage.removeItem("authtoken");
+    setToken(null);
+    setUser(null);
   }
 
-  api
-    .post("/logout")
-    .then(() => {
-      reset().then(() => {
-        addAlert("Logged out successfully!", "info", 3000)
-      })
-    })
-    .catch((err) => {
-      reset().then(() => {
-        addAlert(err.response && err.response.data, "danger")
-      })
-    })
-}
+  api.post("/logout").then(() => {
+    reset().then(() => {
+      addAlert("Logged out successfully!", "info", 3000);
+    });
+  });
+};
 
 const loginAction = (user, setToken, addAlert, setLoading) => {
-  setLoading(true)
-  api
-    .post("/login", user)
-    .then((res) => {
-      setToken(res.data)
-      setLoading(false)
-    })
-    .catch((err) => {
-      setToken(null)
-      addAlert(err.response && err.response.data, "danger")
-      setLoading(false)
-    })
-}
+  api.post("/login", user).then((res) => {
+    setToken(res.data);
+  });
+};
 
 const registerAction = (user, setToken, addAlert, setLoading, setAllUsers) => {
-  setLoading(true)
-  api
-    .post("/register", user)
-    .then((res) => {
-      setToken(res.data)
-      addAlert("Registered successfully!", "success")
+  api.post("/register", user).then((res) => {
+    setToken(res.data);
+    addAlert("Registered successfully!", "success");
 
-      getAllUsersAction(setAllUsers, addAlert)
+    getAllUsersAction(setAllUsers, addAlert);
 
-      let config = {
-        headers: {
-          "auth-token": res.data,
-        },
-      }
-      api.get("/getuser", config).then((res) => {
-        const firestoreData = {
-          type: "USER",
-          user: res.data._id,
-          fullname: res.data.fullname,
-          post: "",
-          createdAt: timestamp(),
-        }
-        addData("news", firestoreData)
-        setLoading(false)
-      })
-    })
-    .catch((err) => {
-      setToken(null)
-      addAlert(err.response && err.response.data, "danger")
-      setLoading(false)
-    })
-}
+    let config = {
+      headers: {
+        "auth-token": res.data,
+      },
+    };
+    api.get("/getuser", config).then((res) => {
+      const firestoreData = {
+        type: "USER",
+        user: res.data._id,
+        fullname: res.data.fullname,
+        post: "",
+        createdAt: timestamp(),
+      };
+      addData("news", firestoreData);
+    });
+  });
+};
 
 const getAllUsersAction = (setAllUsers, addAlert, setMainLoading) => {
-  api
-    .get("/users")
-    .then((res) => {
-      setAllUsers(res.data)
-    })
-    .catch((err) => {
-      addAlert(err.response && err.response.data, "danger")
-    })
-}
+  api.get("/users").then((res) => {
+    setAllUsers(res.data);
+  });
+};
 
-export {
-  registerAction,
-  getUserAction,
-  logoutAction,
-  loginAction,
-  getAllUsersAction,
-}
+export { registerAction, getUserAction, logoutAction, loginAction, getAllUsersAction };
