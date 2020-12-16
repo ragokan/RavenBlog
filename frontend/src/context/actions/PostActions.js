@@ -61,7 +61,7 @@ export const addCommentAction = (id, comment, posts, setPosts, addAlert) => {
   });
 };
 
-export const editPostAction = (id, post, posts, setPosts, addAlert, setMainLoading, callback) => {
+export const editPostAction = (id, post, posts, setPosts, addAlert, callback) => {
   api.patch(`/posts/${id}`, post).then((res) => {
     const newPost = res.data;
     let allPosts = Array.from(posts);
@@ -75,7 +75,7 @@ export const editPostAction = (id, post, posts, setPosts, addAlert, setMainLoadi
   });
 };
 
-export const deletePostAction = (id, posts, setPosts, addAlert, setMainLoading) => {
+export const deletePostAction = (id, posts, setPosts, addAlert) => {
   api.delete(`/posts/${id}`).then(() => {
     setPosts(posts.filter((post) => post._id !== id));
     addAlert("You sadly deleted your post.", "info", 2500);
