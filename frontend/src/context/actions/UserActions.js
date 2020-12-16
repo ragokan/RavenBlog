@@ -1,6 +1,6 @@
 import api from "../utils/api";
 
-export const updateAboutAction = (about, user, setUser, setMainLoading, addAlert, allUsers, setAllUsers) => {
+export const updateAboutAction = (about, user, setUser, addAlert, allUsers, setAllUsers) => {
   api
     .patch("/profile/about", { about })
     .then((res) => {
@@ -20,7 +20,7 @@ export const updateAboutAction = (about, user, setUser, setMainLoading, addAlert
     });
 };
 
-export const updateProfileAction = (picture, user, setUser, setMainLoading, addAlert, allUsers, setAllUsers) => {
+export const updateProfileAction = (picture, user, setUser, addAlert, allUsers, setAllUsers) => {
   api
     .patch("/profile/picture", { picture })
     .then((res) => {
