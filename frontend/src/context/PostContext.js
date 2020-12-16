@@ -1,6 +1,5 @@
-import React, { createContext, useContext, useState } from "react"
-import { LoadingContext } from "./LoadingContext"
-import { AlertContext } from "./AlertContext"
+import React, { createContext, useContext, useState } from "react";
+import { AlertContext } from "./AlertContext";
 import {
   getPostsAction,
   addPostAction,
@@ -9,49 +8,40 @@ import {
   deletePostAction,
   addCommentAction,
   editPostAction,
-} from "./actions/PostActions"
+} from "./actions/PostActions";
 
-export const PostContext = createContext()
+export const PostContext = createContext();
 
 const PostContextProvider = (props) => {
-  const { addAlert } = useContext(AlertContext)
-  const { setPostsLoading, setMainLoading } = useContext(LoadingContext)
-  const [posts, setPosts] = useState([])
+  const { addAlert } = useContext(AlertContext);
+  const [posts, setPosts] = useState([]);
 
   function getPosts() {
-    getPostsAction(setPosts, setPostsLoading, addAlert)
+    getPostsAction(setPosts);
   }
 
   function addPost(post, success) {
-    addPostAction(post, posts, setPosts, addAlert, success, setMainLoading)
+    addPostAction(post, posts, setPosts, addAlert, success);
   }
 
   function likePost(id) {
-    addLikeAction(id, posts, setPosts, addAlert)
+    addLikeAction(id, posts, setPosts, addAlert);
   }
 
   function dislikePost(id) {
-    adddisLikeAction(id, posts, setPosts, addAlert)
+    adddisLikeAction(id, posts, setPosts, addAlert);
   }
 
   function deletePost(id) {
-    deletePostAction(id, posts, setPosts, addAlert, setMainLoading)
+    deletePostAction(id, posts, setPosts, addAlert);
   }
 
   function addComment(id, comment) {
-    addCommentAction(id, comment, posts, setPosts, addAlert)
+    addCommentAction(id, comment, posts, setPosts, addAlert);
   }
 
   function editPost(id, post, callback) {
-    editPostAction(
-      id,
-      post,
-      posts,
-      setPosts,
-      addAlert,
-      setMainLoading,
-      callback
-    )
+    editPostAction(id, post, posts, setPosts, addAlert, callback);
   }
 
   return (
@@ -70,7 +60,7 @@ const PostContextProvider = (props) => {
     >
       {props.children}
     </PostContext.Provider>
-  )
-}
+  );
+};
 
-export default PostContextProvider
+export default PostContextProvider;

@@ -2,7 +2,7 @@ import api from "../utils/api";
 import { addData } from "./FirestoreActions";
 import { timestamp } from "../../firebase/Config";
 
-const getUserAction = (token, setToken, setUser, addAlert, setLoading) => {
+const getUserAction = (token, setUser, addAlert) => {
   let config = {
     headers: {
       "auth-token": token,
@@ -19,7 +19,7 @@ const getUserAction = (token, setToken, setUser, addAlert, setLoading) => {
   });
 };
 
-const logoutAction = (setToken, setUser, addAlert, setLoading) => {
+const logoutAction = (setToken, setUser, addAlert) => {
   async function reset() {
     localStorage.removeItem("authtoken");
     setToken(null);
@@ -33,13 +33,13 @@ const logoutAction = (setToken, setUser, addAlert, setLoading) => {
   });
 };
 
-const loginAction = (user, setToken, addAlert, setLoading) => {
+const loginAction = (user, setToken) => {
   api.post("/login", user).then((res) => {
     setToken(res.data);
   });
 };
 
-const registerAction = (user, setToken, addAlert, setLoading, setAllUsers) => {
+const registerAction = (user, setToken, addAlert, setAllUsers) => {
   api.post("/register", user).then((res) => {
     setToken(res.data);
     addAlert("Registered successfully!", "success");
@@ -64,7 +64,7 @@ const registerAction = (user, setToken, addAlert, setLoading, setAllUsers) => {
   });
 };
 
-const getAllUsersAction = (setAllUsers, addAlert, setMainLoading) => {
+const getAllUsersAction = (setAllUsers) => {
   api.get("/users").then((res) => {
     setAllUsers(res.data);
   });

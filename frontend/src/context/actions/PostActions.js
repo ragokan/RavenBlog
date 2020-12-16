@@ -2,15 +2,13 @@ import api from "../utils/api";
 import { addData } from "./FirestoreActions";
 import { timestamp } from "../../firebase/Config";
 
-export const getPostsAction = (setPosts, setPostLoading, addAlert) => {
-  setPostLoading(true);
+export const getPostsAction = (setPosts) => {
   api.get("/posts").then((res) => {
     setPosts(res.data);
-    setPostLoading(false);
   });
 };
 
-export const addPostAction = (post, posts, setPosts, addAlert, success, setMainLoading) => {
+export const addPostAction = (post, posts, setPosts, addAlert, success) => {
   api.post("/posts", post).then((resp) => {
     setPosts([resp.data, ...posts]);
     addAlert("Post added successfully!", "success");
