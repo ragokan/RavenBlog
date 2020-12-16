@@ -24,6 +24,8 @@ const ApiContextProvider = (props) => {
       setMainLoading(false);
       if (error.response && error.response.data) {
         addAlert(error.response.data, "danger");
+      } else {
+        addAlert("Problem happened while trying to connect server, please try again!", "danger");
       }
       throw new axios.Cancel("Error happened!");
     }
